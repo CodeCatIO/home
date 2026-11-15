@@ -612,6 +612,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
 
 @media (prefers-reduced-motion:reduce){
   .cursor{display:none}
+  .mt-phone-front{animation:none}
 }
 
 ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
@@ -697,11 +698,55 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   .utb-faq summary{cursor:pointer;font-size:14px;font-weight:550;color:var(--ink)}
   .utb-faq summary::marker{color:var(--accent)}
   .utb-faq p{margin:10px 0 0;color:var(--ink-dim);font-size:13px;line-height:1.9;max-width:62ch}
+
+  /* ========== 极简 TODO 详情 ========== */
+  .mt-ring{
+    position:absolute;width:min(460px,92%);aspect-ratio:1;border-radius:50%;z-index:0;
+    border:1px solid var(--line);
+    background:radial-gradient(circle at 50% 45%,var(--accent-soft),transparent 62%);
+  }
+  .mt-ring::after{content:'';position:absolute;inset:34px;border-radius:50%;border:1px dashed var(--line)}
+  .mt-phone{
+    width:clamp(172px,18vw,222px);flex:none;padding:7px;border-radius:34px;
+    background:linear-gradient(160deg,#2b312c,#0c0f0c 62%);
+    border:1px solid var(--line-strong);
+    box-shadow:0 30px 70px -30px rgba(24,18,44,.55);
+    transform:rotate(2deg);position:relative;z-index:2;
+  }
+  .mt-phone img{width:100%;display:block;border-radius:28px;background:#000}
+  .mt-phone-back{position:absolute;left:1%;top:46px;transform:rotate(-6deg) translateY(8px);opacity:.62;z-index:1}
+  .mt-phone-front{
+    transform:perspective(1400px) rotateY(-13deg) rotateX(4deg) rotate(-1.6deg);
+    transition:transform .8s var(--ease);
+    animation:mtFloat 7s ease-in-out infinite;
+  }
+  .utb-hero-visual:hover .mt-phone-front{transform:perspective(1400px) rotateY(-4deg) rotateX(2deg) rotate(0)}
+  @keyframes mtFloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
+  .mt-sticker{
+    position:absolute;z-index:3;left:2%;bottom:64px;display:flex;align-items:center;gap:9px;
+    padding:9px 13px;border-radius:14px;border:1px solid var(--line);
+    background:color-mix(in srgb,var(--panel) 86%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    box-shadow:0 18px 40px -26px rgba(40,28,80,.45);
+    transform:rotate(-3deg);font-size:11px;color:var(--ink-dim);
+  }
+  .mt-sticker b{display:block;font-size:11.5px;color:var(--ink);font-weight:600}
+  .mt-swatch{width:22px;height:22px;border-radius:8px;background:#7ba3c4;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+  .mt-dl-title{display:flex;align-items:center;gap:14px}
+  .mt-dl-title img{width:52px;height:52px;border-radius:14px;flex:none;box-shadow:0 10px 24px -14px var(--accent)}
+  .apk-card{width:min(440px,100%)}
+  .apk-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .apk-head img{width:44px;height:44px;border-radius:12px;flex:none}
+  .apk-head h3{margin:0 0 2px}
+  .apk-note{margin:0;font-size:12.5px;line-height:1.9;color:var(--ink-dim)}
+  .apk-actions{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:20px}
   @media (max-width:860px){
     .utb-hero{grid-template-columns:1fr;gap:18px}
     .utb-hero-visual{min-height:440px;margin-top:10px}
     .utb-device{width:170px}
     .utb-device-back{right:8%;opacity:.5}
+    .mt-phone{width:168px}
+    .mt-phone-back{left:6%;opacity:.5}
     .utb-showcase,.utb-showcase.reverse{grid-template-columns:1fr;gap:18px}
     .utb-showcase.reverse .utb-shot{order:0}
     .utb-video-section{grid-template-columns:1fr;gap:20px}
@@ -1015,14 +1060,14 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
         <span class="tool-icon"><img src="assets/utb/icon.png" alt="UToolBar"></span>
         <h3 data-t="tool1.name">UToolBar 统一工具栏</h3>
         <p data-t="tool1.desc">一个窗口装下 todo、纪念日、工资条、便签、计算器，还有截图录屏。懒得开一堆软件。</p>
-        <div class="tool-foot"><span class="tag">Windows</span><span class="card-state done"><span class="sq"></span>已发布</span></div>
+        <div class="tool-foot"><span class="tag">Windows</span><span class="card-state done"><span class="sq"></span><span data-t="tool.state.done">已发布</span></span></div>
       </a>
 
-      <a class="tool card-3d" href="#" data-soon>
-        <span class="tool-icon mono">✓</span>
+      <a class="tool card-3d" href="#/tools/minitodo">
+        <span class="tool-icon"><img src="assets/minitodo/icon.png" alt="极简 TODO"></span>
         <h3 data-t="tool2.name">极简 TODO</h3>
         <p data-t="tool2.desc">手机平板数据互通。全年热力图，每天每周每年的打卡，随笔能录音、拍照、写两行。就这些。</p>
-        <div class="tool-foot"><span class="tag">App</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.wip">开发中</span></span></div>
+        <div class="tool-foot"><span class="tag">App</span><span class="card-state done"><span class="sq"></span><span data-t="tool.state.done">已发布</span></span></div>
       </a>
     </div>
   </section>
@@ -1169,6 +1214,142 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     </section>
   </section>
 
+  <!-- ==================== 极简 TODO 详情 ==================== -->
+  <section class="page" data-page="minitodo" hidden>
+    <a class="utb-back" href="#/tools">← 返回工具</a>
+
+    <section class="utb-hero">
+      <div class="utb-hero-copy">
+        <span class="utb-eyebrow">MINITODO · ANDROID APP</span>
+        <h1 class="utb-title">把一天，<br>收进几个圆里</h1>
+        <p class="utb-lede">今天做什么、做完没有、顺手写点东西。四个页面就够。没有账号，没有广告，数据默认只留在自己的手机里。</p>
+        <div class="utb-actions">
+          <button class="btn btn-primary magnetic" data-apk>
+            下载安卓版
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 11l6 6 6-6M5 21h14"/></svg>
+          </button>
+          <a class="btn btn-ghost" href="https://github.com/CodeCatIO/MINITODO" target="_blank" rel="noopener">查看源码</a>
+        </div>
+        <div class="utb-meta mono">v1.0 · 55.5 MB · ANDROID 7.0+ · 中文 / ENGLISH</div>
+      </div>
+      <div class="utb-hero-visual" aria-hidden="true">
+        <span class="mt-ring"></span>
+        <div class="mt-phone mt-phone-back"><img src="assets/minitodo/today.png" alt=""></div>
+        <div class="mt-phone mt-phone-front"><img src="assets/minitodo/home.png" alt="极简 TODO 首页"></div>
+        <div class="mt-sticker">
+          <span class="mt-swatch"></span>
+          <span><b>奶油蓝气泡</b>#7BA3C4 · 默认配色</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="utb-sec">
+      <div class="sec-head"><h2 class="sec-title">我需要的功能，刚好这么多</h2></div>
+      <p class="sec-note">没有「项目」「合集」「看板」这些要先学会的概念。打开，勾掉，关掉。</p>
+      <div class="utb-features">
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.2"/><path d="M12 3.8a8.2 8.2 0 0 1 8.2 8.2"/></svg></span>
+          <h3>完成环</h3>
+          <p>今天做完几件，环就走多少。剩下几件会单独写一行，不用自己算。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="6.4" height="6.4" rx="1.6"/><rect x="13.6" y="4" width="6.4" height="6.4" rx="1.6"/><rect x="4" y="13.6" width="6.4" height="6.4" rx="1.6"/><rect x="13.6" y="13.6" width="6.4" height="6.4" rx="1.6"/></svg></span>
+          <h3>正方形热力图</h3>
+          <p>每一格都是正方形，颜色越深做得越多。平板横过来也不会拉成细长条。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13l-3.2-3.2M20 15H7l3.2 3.2"/></svg></span>
+          <h3>一次性 + 三种重复</h3>
+          <p>一次性的待办只出现在创建那天；每天、每周、自定义按你的节律来。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9l5 5v11H5z"/><path d="M14 4v5h5M8.6 13h6.8M8.6 16.6h4.4"/></svg></span>
+          <h3>随笔不只文字</h3>
+          <p>图片、短视频、录音、标签、收藏，写一半退出会自动存草稿。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.3 0 2-.7 2-1.6 0-.9-.7-1.3-.7-2.2 0-1 .8-1.7 1.9-1.7H17a4 4 0 0 0 4-4c0-4.6-4-8.5-9-8.5z"/><circle cx="8" cy="10" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="7.4" r="1.1" fill="currentColor" stroke="none"/><circle cx="16" cy="9.6" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+          <h3>今日计划可换装</h3>
+          <p>气泡颜色、字体颜色、背景图和毛玻璃，只作用于今日计划这一页。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.4"/><path d="M3.6 12h16.8M12 3.6c2.3 2.4 3.5 5.2 3.5 8.4s-1.2 6-3.5 8.4c-2.3-2.4-3.5-5.2-3.5-8.4S9.7 6 12 3.6z"/></svg></span>
+          <h3>中文 / English</h3>
+          <p>设置里一键切换，日期、星期、问候语都跟着变，你写的内容不动。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="utb-showcase">
+      <div class="utb-shot"><img src="assets/minitodo/calendar.png" alt="日历页：月历与当天清单"></div>
+      <div class="utb-copy">
+        <span class="utb-kicker">CALENDAR</span>
+        <h3>勾过的那天，<br>会留一个小圆点</h3>
+        <p>月历上能直接看出哪天做了什么。点开某一天，当天的清单会从下面滑出来，可以补看，也可以补勾。</p>
+        <ul class="utb-list">
+          <li>完成情况直接标在日期下面</li>
+          <li>点任意一天，查看当天清单</li>
+          <li>补勾、补删都会写回历史</li>
+          <li>一周从周一还是周日开始，可以自己定</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="utb-showcase reverse">
+      <div class="utb-shot"><img src="assets/minitodo/style.png" alt="今日计划个性化设置页"></div>
+      <div class="utb-copy">
+        <span class="utb-kicker">MAKE IT YOURS</span>
+        <h3>今天这一页，<br>按你的样子来</h3>
+        <p>右上角的「个性化」里能改气泡颜色、字体颜色，也能上传一张自己的背景图，调透明度和毛玻璃。默认是奶油蓝配白字。</p>
+        <ul class="utb-list">
+          <li>颜色支持直接输入 #RRGGBB，也有预设色盘</li>
+          <li>背景图透明度 5%–100%，可加毛玻璃</li>
+          <li>只影响今日计划，不动其他页面</li>
+          <li>背景图只存在这台设备上</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="utb-showcase">
+      <div class="utb-shot"><img src="assets/minitodo/settings.png" alt="设置页：语言、外观、数据与云同步"></div>
+      <div class="utb-copy">
+        <span class="utb-kicker">YOUR DATA</span>
+        <h3>数据是你的，<br>不用交给谁</h3>
+        <p>待办、随笔、打卡记录都存在手机里的一个 data.json。可以导出备份，也可以同步到自己的 Gitee 私有仓库，没有第三方服务器。</p>
+        <ul class="utb-list">
+          <li>没有账号系统，打开就是自己的数据</li>
+          <li>导出备份 / 从备份恢复，一个文件带走</li>
+          <li>只有点「上传数据」才写云端；Pull 前会确认覆盖</li>
+          <li>回收站保留 30 天，删错还来得及捞回来</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="utb-sec">
+      <div class="utb-download">
+        <div class="mt-dl-title">
+          <img src="assets/minitodo/icon.png" alt="MINITODO">
+          <div>
+            <span class="utb-kicker">DOWNLOAD</span>
+            <h2>下载 MINITODO</h2>
+            <p>安卓手机安装包，Android 7.0 及以上，55.5 MB。默认从 Gitee 下载，GitHub 版本在「全部版本」里。</p>
+          </div>
+        </div>
+        <div class="utb-actions">
+          <button class="btn btn-primary magnetic" data-apk>下载最新版</button>
+          <a class="btn btn-ghost" href="https://github.com/CodeCatIO/MINITODO/releases" target="_blank" rel="noopener">全部版本</a>
+        </div>
+      </div>
+
+      <div style="margin-top:26px">
+        <details class="utb-faq"><summary>电脑上打开，为什么提示「本应用为手机APK」？</summary><p>这是安卓手机的安装包（.apk），电脑上双击是打不开的。把文件传到手机上安装，或者直接用手机浏览器打开这个页面下载。</p></details>
+        <details class="utb-faq"><summary>需要注册账号吗？</summary><p>不需要。没有账号，也没有登录，数据默认只存在本机。想要多设备同步，可以自己开一个 Gitee 私有仓库，在设置里填令牌和仓库名。</p></details>
+        <details class="utb-faq"><summary>换手机怎么把数据带过去？</summary><p>两种方式：设置 → 数据 → 导出备份，把文件传到新手机后「从备份恢复」；或者在旧手机点「上传数据」，新手机配好同一个仓库后点「Pull 数据」。</p></details>
+        <details class="utb-faq"><summary>iPhone 能用吗？</summary><p>暂时不能，目前只有安卓版。iPhone 无法安装 .apk 文件，这一点系统层面就限制了。</p></details>
+      </div>
+    </section>
+  </section>
+
   <!-- ==================== 笔记 ==================== -->
   <section class="page" data-page="notes" hidden>
     <div class="sec-head">
@@ -1259,6 +1440,23 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   </div>
 </div>
 
+<div class="help" id="apkDlg">
+  <div class="help-card apk-card">
+    <div class="apk-head">
+      <img src="assets/minitodo/icon.png" alt="">
+      <div>
+        <h3>本应用为手机APK，是否下载？</h3>
+        <p class="sub mono">MINITODO v1.0 · 55.5 MB · ANDROID 7.0+</p>
+      </div>
+    </div>
+    <p class="apk-note">这是安卓手机的安装包，装到电脑上不能用。想装到手机？把文件传到手机，或者直接用手机打开这个页面。</p>
+    <div class="apk-actions">
+      <button class="btn btn-ghost" data-apk-close>取消</button>
+      <a class="btn btn-primary" id="apkLink" href="https://gitee.com/codecatio/minitodo/releases/download/latest/MINITODO.apk">下载 APK</a>
+    </div>
+  </div>
+</div>
+
 <script>
 (() => {
   'use strict';
@@ -1331,6 +1529,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'tool1.name': 'UToolBar 统一工具栏', 'tool1.desc': '一个窗口装下 todo、纪念日、工资条、便签、计算器，还有截图录屏。懒得开一堆软件。',
       'tool2.name': '极简 TODO', 'tool2.desc': '手机平板数据互通。全年热力图，每天每周每年的打卡，随笔能录音、拍照、写两行。就这些。',
       'tool.state.wip': '开发中',
+      'tool.state.done': '已发布',
       'notes.title': '笔记',
       'notes.note': '详细点击文章进入我的博客小站',
       'notes.more': '去博客看全部',
@@ -1415,6 +1614,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'tool1.name': 'UToolBar', 'tool1.desc': 'Todo, anniversaries, salary charts, sticky notes, a calculator, screenshots and screen recording — all in one window. I got tired of opening six apps.',
       'tool2.name': 'Minimal TODO', 'tool2.desc': 'Phone and tablet share one dataset. A year-long heatmap, daily and weekly and yearly check-ins, and notes you can record, photograph, or type in two lines. That is all.',
       'tool.state.wip': 'Building',
+      'tool.state.done': 'Released',
       'notes.title': 'Notes',
       'notes.note': 'Click an article to read it on my blog.',
       'notes.more': 'Read all on the blog',
@@ -1499,6 +1699,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'tool1.name': 'UToolBar', 'tool1.desc': 'ToDo、記念日、給与グラフ、付箋、電卓、スクショと録画を 1 つのウィンドウに。アプリを何個も開くのが面倒だったので。',
       'tool2.name': 'ミニマル TODO', 'tool2.desc': 'スマホとタブレットでデータ同期。年間ヒートマップ、日・週・年の記録、メモは音声・写真・2 行の文字で。それだけ。',
       'tool.state.wip': '開発中',
+      'tool.state.done': '公開中',
       'notes.title': 'ノート',
       'notes.note': '記事をクリックすると、ブログで読めます。',
       'notes.more': 'ブログですべて読む',
@@ -1583,6 +1784,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'tool1.name': 'UToolBar', 'tool1.desc': '할 일, 기념일, 급여 그래프, 메모, 계산기, 스크린샷과 녹화를 한 창에. 앱 여러 개 여는 게 귀찮아서.',
       'tool2.name': '미니멀 TODO', 'tool2.desc': '휴대폰과 태블릿이 같은 데이터를 씁니다. 연간 히트맵, 일·주·년 기록, 메모는 음성·사진·두 줄 텍스트로. 그게 전부.',
       'tool.state.wip': '개발 중',
+      'tool.state.done': '출시됨',
       'notes.title': '노트',
       'notes.note': '글을 클릭하면 블로그에서 볼 수 있습니다.',
       'notes.more': '블로그에서 전부 보기',
@@ -1609,10 +1811,10 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   };
 
   const TITLES = {
-    zh: { home: 'CodeCat', about: '关于 — CodeCat', work: '作品集 — CodeCat', tools: '工具 — CodeCat', utoolbar: 'UToolBar — CodeCat', notes: '笔记 — CodeCat', contact: '联系 — CodeCat' },
-    en: { home: 'CodeCat', about: 'About — CodeCat', work: 'Portfolio — CodeCat', tools: 'Tools — CodeCat', utoolbar: 'UToolBar — CodeCat', notes: 'Notes — CodeCat', contact: 'Contact — CodeCat' },
-    ja: { home: 'CodeCat', about: 'について — CodeCat', work: '作品集 — CodeCat', tools: 'ツール — CodeCat', utoolbar: 'UToolBar — CodeCat', notes: 'ノート — CodeCat', contact: '連絡 — CodeCat' },
-    ko: { home: 'CodeCat', about: '소개 — CodeCat', work: '포트폴리오 — CodeCat', tools: '도구 — CodeCat', utoolbar: 'UToolBar — CodeCat', notes: '노트 — CodeCat', contact: '연락 — CodeCat' }
+    zh: { home: 'CodeCat', about: '关于 — CodeCat', work: '作品集 — CodeCat', tools: '工具 — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', notes: '笔记 — CodeCat', contact: '联系 — CodeCat' },
+    en: { home: 'CodeCat', about: 'About — CodeCat', work: 'Portfolio — CodeCat', tools: 'Tools — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', notes: 'Notes — CodeCat', contact: 'Contact — CodeCat' },
+    ja: { home: 'CodeCat', about: 'について — CodeCat', work: '作品集 — CodeCat', tools: 'ツール — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', notes: 'ノート — CodeCat', contact: '連絡 — CodeCat' },
+    ko: { home: 'CodeCat', about: '소개 — CodeCat', work: '포트폴리오 — CodeCat', tools: '도구 — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', notes: '노트 — CodeCat', contact: '연락 — CodeCat' }
   };
 
   let lang = localStorage.getItem('cc-lang') || 'zh';
@@ -1681,6 +1883,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   function parseRoute() {
     const raw = location.hash.replace(/^#\/?/, '');
     if (raw === 'tools/utoolbar') return 'utoolbar';
+    if (raw === 'tools/minitodo') return 'minitodo';
     return ROUTES.includes(raw) ? raw : 'home';
   }
 
@@ -1702,7 +1905,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       }
     });
 
-    const navKey = key === 'utoolbar' ? 'tools' : key;
+    const navKey = (key === 'utoolbar' || key === 'minitodo') ? 'tools' : key;
     navLinks.forEach(a => a.classList.toggle('active', a.dataset.route === navKey));
     document.title = TITLES[lang][key] || 'CodeCat';
     scrollTo({ top: 0, behavior: 'auto' });
@@ -1957,6 +2160,20 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   $('#helpBtn').addEventListener('click', () => openHelp(!help.classList.contains('show')));
   help.addEventListener('click', e => { if (e.target === help) openHelp(false); });
 
+  /* ================= APK 下载 ================= */
+  const apkDlg = $('#apkDlg');
+  const apkPath = 'https://gitee.com/codecatio/minitodo/releases/download/latest/MINITODO.apk';
+  $('#apkLink').href = apkPath;
+  const apkOnAndroid = /Android/i.test(navigator.userAgent);
+  $$('[data-apk]').forEach(el => el.addEventListener('click', () => {
+    if (apkOnAndroid) { location.href = apkPath; return; }
+    apkDlg.classList.add('show');
+  }));
+  apkDlg.addEventListener('click', e => {
+    if (e.target === apkDlg || e.target.closest('[data-apk-close]')) apkDlg.classList.remove('show');
+  });
+  $('#apkLink').addEventListener('click', () => setTimeout(() => apkDlg.classList.remove('show'), 150));
+
   const jump = { '1': 'home', '2': 'about', '3': 'work', '4': 'tools', '5': 'notes', '6': 'contact' };
   addEventListener('keydown', e => {
     const tag = (e.target.tagName || '').toLowerCase();
@@ -1965,7 +2182,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     if (e.key === 't' || e.key === 'T') { toggleTheme(); return; }
     if (e.key === 'g' || e.key === 'G') { scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }); return; }
     if (e.key === '?') { e.preventDefault(); openHelp(!help.classList.contains('show')); return; }
-    if (e.key === 'Escape') { openHelp(false); langMenu.classList.remove('show'); }
+    if (e.key === 'Escape') { openHelp(false); apkDlg.classList.remove('show'); langMenu.classList.remove('show'); }
   });
 
   /* ================= 自定义光标 ================= */
