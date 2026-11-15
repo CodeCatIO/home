@@ -134,8 +134,8 @@ html[data-theme="dark"] .theme-toggle .moon-cut{transform:translate(3.2px,-3.2px
 
 /* ========== 通用 ========== */
 .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4.5vw,52px)}
-.page{padding-top:calc(var(--nav-h) + 30px);padding-bottom:70px;position:relative;z-index:2}
-.page[data-page="home"],.page[data-page="about"],.page[data-page="work"],.page[data-page="notes"]{
+.page{padding-top:calc(var(--nav-h) + 30px);padding-bottom:70px;position:relative;z-index:2;min-height:calc(100vh - var(--nav-h) - 60px)}
+.page[data-page="home"],.page[data-page="about"],.page[data-page="work"],.page[data-page="tools"],.page[data-page="notes"]{
   -webkit-user-select:none;-moz-user-select:none;user-select:none;
 }
 .page[hidden]{display:none}
@@ -620,6 +620,47 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   from{clip-path:circle(0 at var(--cx,50%) var(--cy,50%))}
   to{clip-path:circle(150% at var(--cx,50%) var(--cy,50%))}
 }
+
+  /* ==================== 工具 ==================== */
+  .tools-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));
+    gap:16px;margin-top:26px;
+  }
+  .tool{
+    position:relative;display:flex;flex-direction:column;gap:9px;
+    padding:20px 20px 16px;border:1px solid var(--line);border-radius:16px;
+    background:var(--panel);text-decoration:none;color:inherit;overflow:hidden;
+    transition:transform .34s var(--ease),border-color .34s,box-shadow .34s;
+  }
+  .tool::after{
+    content:'';position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .34s;
+    background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),var(--accent-soft),transparent 68%);
+  }
+  .tool:hover{transform:translateY(-4px);border-color:rgba(143,123,196,.34);box-shadow:0 16px 34px rgba(112,92,158,.14)}
+  .tool:hover::after{opacity:1}
+  .tool-icon{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:38px;height:38px;border-radius:11px;
+    background:var(--accent-soft);color:var(--accent);
+    font-size:12px;font-weight:600;letter-spacing:.02em;
+  }
+  .tool h3{margin:4px 0 0;font-size:15px;font-weight:600;line-height:1.4}
+  .tool p{margin:0;font-size:13px;line-height:1.6;color:var(--ink-dim)}
+  .tool-foot{
+    display:flex;align-items:center;gap:8px;margin-top:auto;
+    padding-top:12px;border-top:1px solid var(--line);
+  }
+
+  /* 点击礼花 */
+  .spark{
+    position:fixed;left:0;top:0;z-index:9997;pointer-events:none;
+    width:var(--s);height:var(--s);
+    margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
+    background:var(--c);
+    clip-path:polygon(50% 0%,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0% 50%,38% 38%);
+    filter:drop-shadow(0 0 8px var(--c));
+    will-change:transform,opacity;
+  }
 </style>
 </head>
 <body>
@@ -637,6 +678,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     <a href="#/home" data-route="home" data-t="nav.home">首页</a>
     <a href="#/about" data-route="about" data-t="nav.about">关于</a>
     <a href="#/work" data-route="work" data-t="nav.work">项目</a>
+    <a href="#/tools" data-route="tools" data-t="nav.tools">工具</a>
     <a href="#/notes" data-route="notes" data-t="nav.notes">笔记</a>
     <a href="#/contact" data-route="contact" data-t="nav.contact">联系</a>
   </nav>
@@ -903,6 +945,44 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     </div>
   </section>
 
+  <!-- ==================== 工具 ==================== -->
+  <section class="page" data-page="tools" hidden>
+    <div class="sec-head">
+      <h2 class="sec-title" data-t="tools.title">工具</h2>
+    </div>
+    <p class="sec-note" data-t="tools.note">自己写的小东西，做好一个放一个。点开直接能用，不用装。</p>
+
+    <div class="tools-grid">
+      <a class="tool card-3d" href="#" data-soon>
+        <span class="tool-icon mono">{ }</span>
+        <h3 data-t="tool1.name">JSON 格式化</h3>
+        <p data-t="tool1.desc">压缩成一坨的 JSON 粘进去，摊开，顺手校验哪里写错了。</p>
+        <div class="tool-foot"><span class="tag">Web</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.soon">准备中</span></span></div>
+      </a>
+
+      <a class="tool card-3d" href="#" data-soon>
+        <span class="tool-icon mono">64</span>
+        <h3 data-t="tool2.name">Base64 编解码</h3>
+        <p data-t="tool2.desc">中文和 emoji 都不乱码，编完直接复制走。</p>
+        <div class="tool-foot"><span class="tag">Web</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.soon">准备中</span></span></div>
+      </a>
+
+      <a class="tool card-3d" href="#" data-soon>
+        <span class="tool-icon mono">TS</span>
+        <h3 data-t="tool3.name">时间戳转换</h3>
+        <p data-t="tool3.desc">秒和毫秒都能认，转成本地时间，也能反着来。</p>
+        <div class="tool-foot"><span class="tag">Web</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.soon">准备中</span></span></div>
+      </a>
+
+      <a class="tool card-3d" href="#" data-soon>
+        <span class="tool-icon mono">.*</span>
+        <h3 data-t="tool4.name">正则速查</h3>
+        <p data-t="tool4.desc">常用正则攒成一页，点一下复制，省得每次重新想。</p>
+        <div class="tool-foot"><span class="tag">Docs</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.soon">准备中</span></span></div>
+      </a>
+    </div>
+  </section>
+
   <!-- ==================== 笔记 ==================== -->
   <section class="page" data-page="notes" hidden>
     <div class="sec-head">
@@ -986,7 +1066,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   <div class="help-card">
     <h3 data-t="help.title">快捷键</h3>
     <p class="sub mono">// keyboard</p>
-    <div class="help-row"><span data-t="help.jump">切换页面</span><span><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd></span></div>
+    <div class="help-row"><span data-t="help.jump">切换页面</span><span><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> <kbd>6</kbd></span></div>
     <div class="help-row"><span data-t="help.theme">切换明暗</span><kbd>T</kbd></div>
     <div class="help-row"><span data-t="help.top">回到顶部</span><kbd>G</kbd></div>
     <div class="help-row"><span data-t="help.close">关闭面板</span><kbd>Esc</kbd></div>
@@ -1005,7 +1085,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   /* ================= 多语言文案 ================= */
   const I18N = {
     zh: {
-      'nav.home': '首页', 'nav.about': '关于', 'nav.work': '项目', 'nav.notes': '笔记', 'nav.contact': '联系',
+      'nav.home': '首页', 'nav.about': '关于', 'nav.work': '项目', 'nav.tools': '工具', 'nav.notes': '笔记', 'nav.contact': '联系',
       'hero.role': '一只大四喵 · 南京',
       'hero.line1': '把复杂的事做简单，把简单的事做久。',
       'hero.line2': '写不完的代码，睡不够的觉。',
@@ -1060,6 +1140,13 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'p4.approach': 'C# + WPF + MVVM 分层，阈值告警秒级推送。',
       'p4.result': '稳定跑在现场，告警从「事后知道」变成「当场知道」。',
       'p4.state': '已完成',
+      'tools.title': '工具',
+      'tools.note': '自己写的小东西，做好一个放一个。点开直接能用，不用装。',
+      'tool1.name': 'JSON 格式化', 'tool1.desc': '压缩成一坨的 JSON 粘进去，摊开，顺手校验哪里写错了。',
+      'tool2.name': 'Base64 编解码', 'tool2.desc': '中文和 emoji 都不乱码，编完直接复制走。',
+      'tool3.name': '时间戳转换', 'tool3.desc': '秒和毫秒都能认，转成本地时间，也能反着来。',
+      'tool4.name': '正则速查', 'tool4.desc': '常用正则攒成一页，点一下复制，省得每次重新想。',
+      'tool.state.soon': '准备中',
       'notes.title': '笔记',
       'notes.note': '详细点击文章进入我的博客小站',
       'notes.more': '去博客看全部',
@@ -1084,7 +1171,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'bubble.4': '简历在下面，点我干嘛。', 'bubble.5': '喵。', 'bubble.6': '代码写完了吗？'
     },
     en: {
-      'nav.home': 'Home', 'nav.about': 'About', 'nav.work': 'Work', 'nav.notes': 'Notes', 'nav.contact': 'Contact',
+      'nav.home': 'Home', 'nav.about': 'About', 'nav.work': 'Work', 'nav.tools': 'Tools', 'nav.notes': 'Notes', 'nav.contact': 'Contact',
       'hero.role': 'senior-year cat · Nanjing',
       'hero.line1': 'Make complex things simple. Keep simple things going.',
       'hero.line2': 'Never enough code, never enough sleep.',
@@ -1139,6 +1226,13 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'p4.approach': 'C# + WPF with MVVM layering, threshold alerts pushed in seconds.',
       'p4.result': 'Runs stably on site. Alerts moved from after-the-fact to on-the-spot.',
       'p4.state': 'Done',
+      'tools.title': 'Tools',
+      'tools.note': 'Small things I built. One goes up when it is done — open and use it, nothing to install.',
+      'tool1.name': 'JSON Formatter', 'tool1.desc': 'Paste a wall of minified JSON, get it laid out, and see where it broke.',
+      'tool2.name': 'Base64 Encoder', 'tool2.desc': 'Chinese and emoji survive the round trip. Copy when done.',
+      'tool3.name': 'Timestamp Converter', 'tool3.desc': 'Takes seconds or milliseconds, converts to local time and back.',
+      'tool4.name': 'Regex Cheatsheet', 'tool4.desc': 'The patterns I keep needing, on one page. One click to copy.',
+      'tool.state.soon': 'Pending',
       'notes.title': 'Notes',
       'notes.note': 'Click an article to read it on my blog.',
       'notes.more': 'Read all on the blog',
@@ -1163,7 +1257,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'bubble.4': 'The resume is below. Why click me?', 'bubble.5': 'Meow.', 'bubble.6': 'Done writing code yet?'
     },
     ja: {
-      'nav.home': 'ホーム', 'nav.about': 'について', 'nav.work': '作品', 'nav.notes': 'ノート', 'nav.contact': '連絡',
+      'nav.home': 'ホーム', 'nav.about': 'について', 'nav.work': '作品', 'nav.tools': 'ツール', 'nav.notes': 'ノート', 'nav.contact': '連絡',
       'hero.role': '大学四年生の猫 · 南京',
       'hero.line1': '複雑なことをシンプルに。シンプルなことを長く。',
       'hero.line2': 'コードは書き終わらない。眠りも足りない。',
@@ -1218,6 +1312,13 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'p4.approach': 'C# + WPF に MVVM で層を分け、しきい値アラートを秒単位で配信。',
       'p4.result': '現場で安定稼働。アラートは「後から知る」から「その場で知る」へ。',
       'p4.state': '完成',
+      'tools.title': 'ツール',
+      'tools.note': '自分で作った小さな道具。できたものから並べています。開けばそのまま使えて、インストールは不要。',
+      'tool1.name': 'JSON 整形', 'tool1.desc': '圧縮された JSON を貼ると整形され、どこが壊れているかも分かります。',
+      'tool2.name': 'Base64 変換', 'tool2.desc': '中国語も絵文字も文字化けしません。変換したらそのままコピー。',
+      'tool3.name': 'タイムスタンプ変換', 'tool3.desc': '秒でもミリ秒でも認識してローカル時間に変換。逆方向も可。',
+      'tool4.name': '正規表現チートシート', 'tool4.desc': 'よく使う正規表現を 1 ページに。クリックでコピー。',
+      'tool.state.soon': '準備中',
       'notes.title': 'ノート',
       'notes.note': '記事をクリックすると、ブログで読めます。',
       'notes.more': 'ブログですべて読む',
@@ -1242,7 +1343,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'bubble.4': '履歴書は下にありますよ。', 'bubble.5': 'にゃ。', 'bubble.6': 'コードは書き終わった？'
     },
     ko: {
-      'nav.home': '홈', 'nav.about': '소개', 'nav.work': '작업', 'nav.notes': '노트', 'nav.contact': '연락',
+      'nav.home': '홈', 'nav.about': '소개', 'nav.work': '작업', 'nav.tools': '도구', 'nav.notes': '노트', 'nav.contact': '연락',
       'hero.role': '대학 4학년 고양이 · 난징',
       'hero.line1': '복잡한 일은 단순하게. 단순한 일은 오래.',
       'hero.line2': '코드는 끝이 없고, 잠은 늘 부족합니다.',
@@ -1297,6 +1398,13 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'p4.approach': 'C# + WPF에 MVVM으로 계층을 나누고, 임계값 알림을 초 단위로 전송.',
       'p4.result': '현장에서 안정적으로 돌아갑니다. 알림이 "나중에 아는" 것에서 "그 자리에서 아는" 것으로 바뀌었습니다.',
       'p4.state': '완료',
+      'tools.title': '도구',
+      'tools.note': '직접 만든 작은 도구들. 완성되는 대로 하나씩 올립니다. 열면 바로 쓸 수 있고 설치할 필요 없습니다.',
+      'tool1.name': 'JSON 포맷터', 'tool1.desc': '한 줄로 뭉친 JSON을 붙여 넣으면 펼쳐 주고, 어디가 틀렸는지도 알려 줍니다.',
+      'tool2.name': 'Base64 인코더', 'tool2.desc': '중국어와 이모지도 깨지지 않습니다. 변환 후 바로 복사.',
+      'tool3.name': '타임스탬프 변환', 'tool3.desc': '초와 밀리초를 모두 인식해 로컬 시간으로 변환합니다. 반대 방향도 가능.',
+      'tool4.name': '정규식 치트시트', 'tool4.desc': '자주 쓰는 정규식을 한 페이지에. 클릭해서 복사.',
+      'tool.state.soon': '준비 중',
       'notes.title': '노트',
       'notes.note': '글을 클릭하면 블로그에서 볼 수 있습니다.',
       'notes.more': '블로그에서 전부 보기',
@@ -1323,10 +1431,10 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   };
 
   const TITLES = {
-    zh: { home: 'CodeCat', about: '关于 — CodeCat', work: '作品集 — CodeCat', notes: '笔记 — CodeCat', contact: '联系 — CodeCat' },
-    en: { home: 'CodeCat', about: 'About — CodeCat', work: 'Portfolio — CodeCat', notes: 'Notes — CodeCat', contact: 'Contact — CodeCat' },
-    ja: { home: 'CodeCat', about: 'について — CodeCat', work: '作品集 — CodeCat', notes: 'ノート — CodeCat', contact: '連絡 — CodeCat' },
-    ko: { home: 'CodeCat', about: '소개 — CodeCat', work: '포트폴리오 — CodeCat', notes: '노트 — CodeCat', contact: '연락 — CodeCat' }
+    zh: { home: 'CodeCat', about: '关于 — CodeCat', work: '作品集 — CodeCat', tools: '工具 — CodeCat', notes: '笔记 — CodeCat', contact: '联系 — CodeCat' },
+    en: { home: 'CodeCat', about: 'About — CodeCat', work: 'Portfolio — CodeCat', tools: 'Tools — CodeCat', notes: 'Notes — CodeCat', contact: 'Contact — CodeCat' },
+    ja: { home: 'CodeCat', about: 'について — CodeCat', work: '作品集 — CodeCat', tools: 'ツール — CodeCat', notes: 'ノート — CodeCat', contact: '連絡 — CodeCat' },
+    ko: { home: 'CodeCat', about: '소개 — CodeCat', work: '포트폴리오 — CodeCat', tools: '도구 — CodeCat', notes: '노트 — CodeCat', contact: '연락 — CodeCat' }
   };
 
   let lang = localStorage.getItem('cc-lang') || 'zh';
@@ -1387,7 +1495,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   $('#themeBtn').addEventListener('click', toggleTheme);
 
   /* ================= 路由 ================= */
-  const ROUTES = ['home', 'about', 'work', 'notes', 'contact'];
+  const ROUTES = ['home', 'about', 'work', 'tools', 'notes', 'contact'];
   const pages = $$('.page');
   const navLinks = $$('#navLinks a');
   let current = null;
@@ -1669,7 +1777,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   $('#helpBtn').addEventListener('click', () => openHelp(!help.classList.contains('show')));
   help.addEventListener('click', e => { if (e.target === help) openHelp(false); });
 
-  const jump = { '1': 'home', '2': 'about', '3': 'work', '4': 'notes', '5': 'contact' };
+  const jump = { '1': 'home', '2': 'about', '3': 'work', '4': 'tools', '5': 'notes', '6': 'contact' };
   addEventListener('keydown', e => {
     const tag = (e.target.tagName || '').toLowerCase();
     if (tag === 'input' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
@@ -1704,6 +1812,38 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     document.addEventListener('pointerup', () => cursorEl.classList.remove('down'));
     document.addEventListener('mouseleave', () => cursorEl.classList.remove('on'));
     document.addEventListener('mouseenter', () => cursorEl.classList.add('on'));
+  }
+
+  /* ================= 点击礼花 ================= */
+  const SPARK_COLORS = ['#c9b6f5', '#f0b8d0', '#a892e8', '#ffd9ec', '#e6dcff'];
+  if (canHover && !reduceMotion) {
+    addEventListener('pointerdown', e => {
+      if (e.button !== 0) return;
+      const px = e.clientX, py = e.clientY;
+      const n = 6 + Math.floor(Math.random() * 4);
+      for (let i = 0; i < n; i++) {
+        const s = document.createElement('span');
+        s.className = 'spark';
+        const size = 10 + Math.random() * 16;
+        const ang = (Math.PI * 2 * i) / n + Math.random() * 0.9;
+        const dist = 26 + Math.random() * 54;
+        const dx = Math.cos(ang) * dist;
+        const dy = Math.sin(ang) * dist - 10;
+        const rot = Math.random() * 180 - 90;
+        s.style.setProperty('--s', size.toFixed(0) + 'px');
+        s.style.setProperty('--c', SPARK_COLORS[i % SPARK_COLORS.length]);
+        document.body.appendChild(s);
+        s.animate([
+          { transform: `translate(${px}px, ${py}px) scale(.25) rotate(0deg)`, opacity: 0 },
+          { transform: `translate(${px + dx * .55}px, ${py + dy * .6}px) scale(1) rotate(${(rot * .5).toFixed(0)}deg)`, opacity: 1, offset: .22 },
+          { transform: `translate(${px + dx}px, ${py + dy + 22}px) scale(.14) rotate(${rot.toFixed(0)}deg)`, opacity: 0 }
+        ], {
+          duration: 620 + Math.random() * 420,
+          easing: 'cubic-bezier(.16,.68,.32,1)',
+          fill: 'forwards'
+        }).onfinish = () => s.remove();
+      }
+    }, { passive: true });
   }
 
   /* ================= 看板娘 ================= */
