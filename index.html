@@ -1037,13 +1037,13 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
         <h1 class="utb-title">把常用工具<br>贴在屏幕边缘</h1>
         <p class="utb-lede">便签、待办、截图标注、剪贴板、录屏……一个侧边栏全收好。用时滑出，不用时让开，不打断手头的事。</p>
         <div class="utb-actions">
-          <a class="btn btn-primary" href="https://github.com/CodeCatIO/UToolBar/releases/latest/download/UToolBar-setup.exe" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="https://gitee.com/codecatio/ebar/releases/download/latest/UToolBar-setup.exe" target="_blank" rel="noopener">
             下载 Windows 版
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 11l6 6 6-6M5 21h14"/></svg>
           </a>
           <a class="btn btn-ghost" href="https://github.com/CodeCatIO/UToolBar" target="_blank" rel="noopener">GitHub 源码</a>
         </div>
-        <div class="utb-meta mono">v2.3.1 · 46MB · Windows 10 2004+ · 自包含 .NET 8</div>
+        <div class="utb-meta mono">国内镜像 · v2.3.1 · 46MB · Windows 10 2004+ · 自包含 .NET 8</div>
       </div>
       <div class="utb-hero-visual" aria-hidden="true">
         <div class="utb-device utb-device-back"><img src="assets/utb/panel-clipboard.png" alt=""></div>
@@ -1151,15 +1151,16 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
         <div>
           <span class="utb-kicker">DOWNLOAD</span>
           <h2>下载 UToolBar</h2>
-          <p>Windows 10 2004 及以上 / Windows 11，64 位。安装包自带 .NET 8 运行时，双击安装，默认装到 D:\Programs\UToolBar。</p>
+          <p>Windows 10 2004 及以上 / Windows 11，64 位。安装包自带 .NET 8 运行时，双击安装，默认装到 D:\Programs\UToolBar。默认从 Gitee 国内镜像下载，GitHub 版本在「全部版本」里。</p>
         </div>
         <div class="utb-actions">
-          <a class="btn btn-primary" href="https://github.com/CodeCatIO/UToolBar/releases/latest/download/UToolBar-setup.exe" target="_blank" rel="noopener">下载最新版</a>
+          <a class="btn btn-primary" href="https://gitee.com/codecatio/ebar/releases/download/latest/UToolBar-setup.exe" target="_blank" rel="noopener">下载最新版</a>
           <a class="btn btn-ghost" href="https://github.com/CodeCatIO/UToolBar/releases" target="_blank" rel="noopener">全部版本</a>
         </div>
       </div>
 
       <div style="margin-top:26px">
+        <details class="utb-faq"><summary>下载速度慢怎么办？</summary><p>默认走 Gitee 国内镜像，实测能到 2MB/s 左右，46MB 大约二十多秒。如果镜像不可用，可以点「全部版本」去 GitHub 下载。</p></details>
         <details class="utb-faq"><summary>需要先装 .NET 吗？</summary><p>不需要。安装包是自包含的单文件发布，已经带上了 .NET 8 运行时。</p></details>
         <details class="utb-faq"><summary>录屏为什么没有用显卡硬件编码？</summary><p>部分 Intel 显卡驱动在非 16 对齐的选区宽度下会崩溃，为了任意选区都能稳定录制，这里用了系统软件编码。1080p 录制大约占用 0.4 个 CPU 核心。</p></details>
         <details class="utb-faq"><summary>数据存在哪里？会被上传吗？</summary><p>默认在 %APPDATA%\UToolBar，截图和录屏分别在图片、视频目录下。所有内容都只留在本机，不会上传；只有你主动配置 Gitee 仓库时才会同步 data.json。</p></details>
