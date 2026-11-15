@@ -597,7 +597,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
 .mascot-bubble{
   position:absolute;left:50%;bottom:calc(100% - 4px);
   transform:translateX(-50%) translateY(8px) scale(.92);
-  background:var(--card,#fff);border:1px solid var(--line);
+  background:var(--panel);border:1px solid var(--line-strong);
   color:var(--ink);font-size:13px;line-height:1;padding:8px 13px;border-radius:14px;
   white-space:nowrap;opacity:0;pointer-events:none;font-weight:500;
   box-shadow:0 8px 20px rgba(80,60,120,.16);
@@ -623,7 +623,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
 
   /* ==================== 工具 ==================== */
   .tools-grid{
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     gap:16px;margin-top:26px;
   }
   .tool{
@@ -954,31 +954,17 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
 
     <div class="tools-grid">
       <a class="tool card-3d" href="#" data-soon>
-        <span class="tool-icon mono">{ }</span>
-        <h3 data-t="tool1.name">JSON 格式化</h3>
-        <p data-t="tool1.desc">压缩成一坨的 JSON 粘进去，摊开，顺手校验哪里写错了。</p>
-        <div class="tool-foot"><span class="tag">Web</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.soon">准备中</span></span></div>
+        <span class="tool-icon mono">UB</span>
+        <h3 data-t="tool1.name">UToolBar 统一工具栏</h3>
+        <p data-t="tool1.desc">一个窗口装下 todo、纪念日、工资条、便签、计算器，还有截图录屏。懒得开一堆软件。</p>
+        <div class="tool-foot"><span class="tag">Desktop</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.wip">开发中</span></span></div>
       </a>
 
       <a class="tool card-3d" href="#" data-soon>
-        <span class="tool-icon mono">64</span>
-        <h3 data-t="tool2.name">Base64 编解码</h3>
-        <p data-t="tool2.desc">中文和 emoji 都不乱码，编完直接复制走。</p>
-        <div class="tool-foot"><span class="tag">Web</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.soon">准备中</span></span></div>
-      </a>
-
-      <a class="tool card-3d" href="#" data-soon>
-        <span class="tool-icon mono">TS</span>
-        <h3 data-t="tool3.name">时间戳转换</h3>
-        <p data-t="tool3.desc">秒和毫秒都能认，转成本地时间，也能反着来。</p>
-        <div class="tool-foot"><span class="tag">Web</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.soon">准备中</span></span></div>
-      </a>
-
-      <a class="tool card-3d" href="#" data-soon>
-        <span class="tool-icon mono">.*</span>
-        <h3 data-t="tool4.name">正则速查</h3>
-        <p data-t="tool4.desc">常用正则攒成一页，点一下复制，省得每次重新想。</p>
-        <div class="tool-foot"><span class="tag">Docs</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.soon">准备中</span></span></div>
+        <span class="tool-icon mono">✓</span>
+        <h3 data-t="tool2.name">极简 TODO</h3>
+        <p data-t="tool2.desc">手机平板数据互通。全年热力图，每天每周每年的打卡，随笔能录音、拍照、写两行。就这些。</p>
+        <div class="tool-foot"><span class="tag">App</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.wip">开发中</span></span></div>
       </a>
     </div>
   </section>
@@ -1142,11 +1128,9 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'p4.state': '已完成',
       'tools.title': '工具',
       'tools.note': '自己写的小东西，做好一个放一个。点开直接能用，不用装。',
-      'tool1.name': 'JSON 格式化', 'tool1.desc': '压缩成一坨的 JSON 粘进去，摊开，顺手校验哪里写错了。',
-      'tool2.name': 'Base64 编解码', 'tool2.desc': '中文和 emoji 都不乱码，编完直接复制走。',
-      'tool3.name': '时间戳转换', 'tool3.desc': '秒和毫秒都能认，转成本地时间，也能反着来。',
-      'tool4.name': '正则速查', 'tool4.desc': '常用正则攒成一页，点一下复制，省得每次重新想。',
-      'tool.state.soon': '准备中',
+      'tool1.name': 'UToolBar 统一工具栏', 'tool1.desc': '一个窗口装下 todo、纪念日、工资条、便签、计算器，还有截图录屏。懒得开一堆软件。',
+      'tool2.name': '极简 TODO', 'tool2.desc': '手机平板数据互通。全年热力图，每天每周每年的打卡，随笔能录音、拍照、写两行。就这些。',
+      'tool.state.wip': '开发中',
       'notes.title': '笔记',
       'notes.note': '详细点击文章进入我的博客小站',
       'notes.more': '去博客看全部',
@@ -1228,11 +1212,9 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'p4.state': 'Done',
       'tools.title': 'Tools',
       'tools.note': 'Small things I built. One goes up when it is done — open and use it, nothing to install.',
-      'tool1.name': 'JSON Formatter', 'tool1.desc': 'Paste a wall of minified JSON, get it laid out, and see where it broke.',
-      'tool2.name': 'Base64 Encoder', 'tool2.desc': 'Chinese and emoji survive the round trip. Copy when done.',
-      'tool3.name': 'Timestamp Converter', 'tool3.desc': 'Takes seconds or milliseconds, converts to local time and back.',
-      'tool4.name': 'Regex Cheatsheet', 'tool4.desc': 'The patterns I keep needing, on one page. One click to copy.',
-      'tool.state.soon': 'Pending',
+      'tool1.name': 'UToolBar', 'tool1.desc': 'Todo, anniversaries, salary charts, sticky notes, a calculator, screenshots and screen recording — all in one window. I got tired of opening six apps.',
+      'tool2.name': 'Minimal TODO', 'tool2.desc': 'Phone and tablet share one dataset. A year-long heatmap, daily and weekly and yearly check-ins, and notes you can record, photograph, or type in two lines. That is all.',
+      'tool.state.wip': 'Building',
       'notes.title': 'Notes',
       'notes.note': 'Click an article to read it on my blog.',
       'notes.more': 'Read all on the blog',
@@ -1314,11 +1296,9 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'p4.state': '完成',
       'tools.title': 'ツール',
       'tools.note': '自分で作った小さな道具。できたものから並べています。開けばそのまま使えて、インストールは不要。',
-      'tool1.name': 'JSON 整形', 'tool1.desc': '圧縮された JSON を貼ると整形され、どこが壊れているかも分かります。',
-      'tool2.name': 'Base64 変換', 'tool2.desc': '中国語も絵文字も文字化けしません。変換したらそのままコピー。',
-      'tool3.name': 'タイムスタンプ変換', 'tool3.desc': '秒でもミリ秒でも認識してローカル時間に変換。逆方向も可。',
-      'tool4.name': '正規表現チートシート', 'tool4.desc': 'よく使う正規表現を 1 ページに。クリックでコピー。',
-      'tool.state.soon': '準備中',
+      'tool1.name': 'UToolBar', 'tool1.desc': 'ToDo、記念日、給与グラフ、付箋、電卓、スクショと録画を 1 つのウィンドウに。アプリを何個も開くのが面倒だったので。',
+      'tool2.name': 'ミニマル TODO', 'tool2.desc': 'スマホとタブレットでデータ同期。年間ヒートマップ、日・週・年の記録、メモは音声・写真・2 行の文字で。それだけ。',
+      'tool.state.wip': '開発中',
       'notes.title': 'ノート',
       'notes.note': '記事をクリックすると、ブログで読めます。',
       'notes.more': 'ブログですべて読む',
@@ -1400,11 +1380,9 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'p4.state': '완료',
       'tools.title': '도구',
       'tools.note': '직접 만든 작은 도구들. 완성되는 대로 하나씩 올립니다. 열면 바로 쓸 수 있고 설치할 필요 없습니다.',
-      'tool1.name': 'JSON 포맷터', 'tool1.desc': '한 줄로 뭉친 JSON을 붙여 넣으면 펼쳐 주고, 어디가 틀렸는지도 알려 줍니다.',
-      'tool2.name': 'Base64 인코더', 'tool2.desc': '중국어와 이모지도 깨지지 않습니다. 변환 후 바로 복사.',
-      'tool3.name': '타임스탬프 변환', 'tool3.desc': '초와 밀리초를 모두 인식해 로컬 시간으로 변환합니다. 반대 방향도 가능.',
-      'tool4.name': '정규식 치트시트', 'tool4.desc': '자주 쓰는 정규식을 한 페이지에. 클릭해서 복사.',
-      'tool.state.soon': '준비 중',
+      'tool1.name': 'UToolBar', 'tool1.desc': '할 일, 기념일, 급여 그래프, 메모, 계산기, 스크린샷과 녹화를 한 창에. 앱 여러 개 여는 게 귀찮아서.',
+      'tool2.name': '미니멀 TODO', 'tool2.desc': '휴대폰과 태블릿이 같은 데이터를 씁니다. 연간 히트맵, 일·주·년 기록, 메모는 음성·사진·두 줄 텍스트로. 그게 전부.',
+      'tool.state.wip': '개발 중',
       'notes.title': '노트',
       'notes.note': '글을 클릭하면 블로그에서 볼 수 있습니다.',
       'notes.more': '블로그에서 전부 보기',
