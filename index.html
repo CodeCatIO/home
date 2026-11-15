@@ -644,11 +644,69 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     background:var(--accent-soft);color:var(--accent);
     font-size:12px;font-weight:600;letter-spacing:.02em;
   }
+  .tool-icon img{width:100%;height:100%;object-fit:cover;border-radius:11px}
   .tool h3{margin:4px 0 0;font-size:15px;font-weight:600;line-height:1.4}
   .tool p{margin:0;font-size:13px;line-height:1.6;color:var(--ink-dim)}
   .tool-foot{
     display:flex;align-items:center;gap:8px;margin-top:auto;
     padding-top:12px;border-top:1px solid var(--line);
+  }
+
+  /* ==================== UTB 详情页 ==================== */
+  .utb-back{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-faint);margin-bottom:18px;transition:color .25s}
+  .utb-back:hover{color:var(--accent)}
+  .utb-hero{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(20px,4vw,56px);align-items:center;padding:clamp(6px,1.6vw,18px) 0 clamp(40px,6vw,72px)}
+  .utb-eyebrow,.utb-kicker{font-family:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;font-size:10.5px;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+  .utb-title{margin:14px 0 16px;font-size:clamp(34px,5vw,56px);line-height:1.1;letter-spacing:-.045em;font-weight:650}
+  .utb-lede{margin:0;max-width:46ch;color:var(--ink-dim);font-size:15px;line-height:1.95}
+  .utb-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .utb-meta{margin-top:14px;font-size:11px;color:var(--ink-faint);letter-spacing:.02em}
+  .utb-hero-visual{position:relative;min-height:520px;display:flex;justify-content:center;align-items:center;isolation:isolate}
+  .utb-hero-visual::before{content:'';position:absolute;width:72%;height:72%;border-radius:50%;background:radial-gradient(circle,var(--accent-soft),transparent 68%);filter:blur(8px);z-index:-1}
+  .utb-device{width:clamp(168px,17vw,212px);border-radius:20px;overflow:hidden;border:1px solid var(--line-strong);background:var(--panel);box-shadow:0 30px 70px -30px rgba(40,28,80,.5);transform:rotate(2.5deg);position:relative;z-index:2}
+  .utb-device img{width:100%;display:block}
+  .utb-device-back{position:absolute;right:1%;top:38px;transform:rotate(-7deg) translateY(10px);opacity:.66;z-index:1}
+  .utb-sec{padding:clamp(34px,5vw,60px) 0}
+  .utb-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:22px}
+  .utb-feature{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--panel);transition:transform .34s var(--ease),border-color .34s,box-shadow .34s}
+  .utb-feature:hover{transform:translateY(-3px);border-color:var(--line-strong);box-shadow:0 18px 40px -30px rgba(40,28,80,.45)}
+  .utb-ficon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);margin-bottom:12px}
+  .utb-ficon svg{width:18px;height:18px}
+  .utb-feature h3{margin:0 0 6px;font-size:15px;font-weight:600;letter-spacing:-.01em}
+  .utb-feature p{margin:0;font-size:13px;line-height:1.85;color:var(--ink-dim)}
+  .utb-showcase{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,64px);align-items:center;padding:clamp(28px,4vw,52px) 0;border-top:1px solid var(--line)}
+  .utb-showcase.reverse{grid-template-columns:1.1fr .9fr}
+  .utb-showcase.reverse .utb-shot{order:2}
+  .utb-shot{display:flex;justify-content:center}
+  .utb-shot img{width:clamp(196px,24vw,272px);border-radius:18px;border:1px solid var(--line);box-shadow:0 26px 60px -30px rgba(40,28,80,.45)}
+  .utb-copy h3{margin:10px 0 10px;font-size:clamp(22px,2.6vw,30px);font-weight:620;letter-spacing:-.025em}
+  .utb-copy p{margin:0;color:var(--ink-dim);font-size:14px;line-height:1.95;max-width:44ch}
+  .utb-list{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:7px;font-size:13px;color:var(--ink-dim)}
+  .utb-list li::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);margin:0 9px 2px 0}
+  .utb-video-section{display:grid;grid-template-columns:1fr auto;gap:clamp(24px,5vw,64px);align-items:center;padding:clamp(28px,4vw,52px) 0;border-top:1px solid var(--line)}
+  .utb-video-frame{width:clamp(190px,22vw,248px);border-radius:20px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:0 30px 70px -34px rgba(40,28,80,.5);background:#000}
+  .utb-video-frame video{width:100%;display:block}
+  .utb-keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:22px}
+  .utb-key{display:flex;align-items:center;gap:9px;padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:var(--panel);font-size:12.5px;color:var(--ink-dim);flex-wrap:wrap}
+  .utb-key kbd{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;padding:3px 7px;border-radius:6px;border:1px solid var(--line-strong);background:var(--bg-2);color:var(--ink);line-height:1.4}
+  .utb-key span{margin-left:auto;color:var(--ink-faint);font-size:11.5px}
+  .utb-download{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(24px,4vw,38px);border-radius:20px;border:1px solid var(--line);background:linear-gradient(120deg,var(--accent-soft),transparent 62%),var(--panel);flex-wrap:wrap}
+  .utb-download h2{margin:8px 0 6px;font-size:clamp(24px,3vw,32px);letter-spacing:-.03em}
+  .utb-download p{margin:0;color:var(--ink-dim);font-size:13px;line-height:1.8;max-width:52ch}
+  .utb-faq{border-top:1px solid var(--line);padding:15px 0}
+  .utb-faq summary{cursor:pointer;font-size:14px;font-weight:550;color:var(--ink)}
+  .utb-faq summary::marker{color:var(--accent)}
+  .utb-faq p{margin:10px 0 0;color:var(--ink-dim);font-size:13px;line-height:1.9;max-width:62ch}
+  @media (max-width:860px){
+    .utb-hero{grid-template-columns:1fr;gap:18px}
+    .utb-hero-visual{min-height:440px;margin-top:10px}
+    .utb-device{width:170px}
+    .utb-device-back{right:8%;opacity:.5}
+    .utb-showcase,.utb-showcase.reverse{grid-template-columns:1fr;gap:18px}
+    .utb-showcase.reverse .utb-shot{order:0}
+    .utb-video-section{grid-template-columns:1fr;gap:20px}
+    .utb-video-frame{width:200px;margin:0 auto}
+    .utb-key span{margin-left:0;width:100%}
   }
 
   /* 点击礼花 */
@@ -953,11 +1011,11 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     <p class="sec-note" data-t="tools.note">自己写的小东西，做好一个放一个。点开直接能用，不用装。</p>
 
     <div class="tools-grid">
-      <a class="tool card-3d" href="#" data-soon>
-        <span class="tool-icon mono">UB</span>
+      <a class="tool card-3d" href="#/tools/utoolbar">
+        <span class="tool-icon"><img src="assets/utb/icon.png" alt="UToolBar"></span>
         <h3 data-t="tool1.name">UToolBar 统一工具栏</h3>
         <p data-t="tool1.desc">一个窗口装下 todo、纪念日、工资条、便签、计算器，还有截图录屏。懒得开一堆软件。</p>
-        <div class="tool-foot"><span class="tag">Desktop</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.wip">开发中</span></span></div>
+        <div class="tool-foot"><span class="tag">Windows</span><span class="card-state done"><span class="sq"></span>已发布</span></div>
       </a>
 
       <a class="tool card-3d" href="#" data-soon>
@@ -967,6 +1025,147 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
         <div class="tool-foot"><span class="tag">App</span><span class="card-state"><span class="sq"></span><span data-t="tool.state.wip">开发中</span></span></div>
       </a>
     </div>
+  </section>
+
+  <!-- ==================== UTB 详情 ==================== -->
+  <section class="page" data-page="utoolbar" hidden>
+    <a class="utb-back" href="#/tools">← 返回工具</a>
+
+    <section class="utb-hero">
+      <div class="utb-hero-copy">
+        <span class="utb-eyebrow">UTB · WINDOWS DESKTOP</span>
+        <h1 class="utb-title">把常用工具<br>贴在屏幕边缘</h1>
+        <p class="utb-lede">便签、待办、截图标注、剪贴板、录屏……一个侧边栏全收好。用时滑出，不用时让开，不打断手头的事。</p>
+        <div class="utb-actions">
+          <a class="btn btn-primary" href="https://github.com/CodeCatIO/UToolBar/releases/latest" target="_blank" rel="noopener">
+            下载 Windows 版
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 11l6 6 6-6M5 21h14"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/CodeCatIO/UToolBar" target="_blank" rel="noopener">GitHub 源码</a>
+        </div>
+        <div class="utb-meta mono">v2.3.1 · 46MB · Windows 10 2004+ · 自包含 .NET 8</div>
+      </div>
+      <div class="utb-hero-visual" aria-hidden="true">
+        <div class="utb-device utb-device-back"><img src="assets/utb/panel-clipboard.png" alt=""></div>
+        <div class="utb-device"><img src="assets/utb/panel-todo.png" alt="UTB 待办面板"></div>
+      </div>
+    </section>
+
+    <section class="utb-sec">
+      <div class="sec-head"><h2 class="sec-title">一个侧边栏，装下一天</h2></div>
+      <p class="sec-note">不用在十几个窗口之间找工具。贴边，滑出，做完，收回去。</p>
+      <div class="utb-features">
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v13l-4 4H4z"/><path d="M16 21v-4h4M8 9h8M8 13h5"/></svg></span>
+          <h3>便签与待办</h3>
+          <p>悬浮便签、日/周/月待办、纪念日提醒。字号跟着便签大小走，写多了也不会挤。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3l2-3h8l2 3h3v11H3z"/><circle cx="12" cy="13" r="3.4"/></svg></span>
+          <h3>截图与标注</h3>
+          <p>箭头、画笔、矩形、文字、马赛克、橡皮，支持选择移动、撤销重做、缩放平移，截完直接贴到桌面。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M9 9h6M9 13h4"/></svg></span>
+          <h3>剪贴板历史</h3>
+          <p>最近 60 条文字和图片，图片只留缩略图不占内存。右键改文字、贴图、编辑后贴。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.2" fill="currentColor" stroke="none"/></svg></span>
+          <h3>屏幕录制</h3>
+          <p>Ctrl+Alt+S，单击录全屏或拖拽选区。MP4 带系统声音和麦克风，也能录 GIF；工具条不会入镜。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg></span>
+          <h3>主题与外观</h3>
+          <p>明暗两套配色，6 张插画壁纸。面板宽度、圆角、透明度、把手位置都能调，改完立刻生效。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.2-2.8 7.6-7 9-4.2-1.4-7-4.8-7-9V6z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span>
+          <h3>本地优先</h3>
+          <p>数据默认存在本机，可以迁移到别的盘。便签、截图、录屏不上传；只有你主动配置 Gitee 才会同步。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="utb-showcase">
+      <div class="utb-shot"><img src="assets/utb/panel-shot.png" alt="UTB 截图与录屏页"></div>
+      <div class="utb-copy">
+        <span class="utb-kicker">SCREENSHOT</span>
+        <h3>截完就能标，标完直接贴</h3>
+        <p>区域、全屏、窗口三种截法。进编辑器后可以像在画板上一样改，保存 PNG 或钉在桌面当参考。</p>
+        <ul class="utb-list">
+          <li>箭头 / 直线、画笔、矩形、文字、马赛克、两种橡皮</li>
+          <li>选择工具可移动已绘制的标注，Delete 删除</li>
+          <li>Ctrl + 滚轮以光标为中心缩放，右键拖拽平移</li>
+          <li>Ctrl + C 复制并关闭，Ctrl + T 贴到桌面</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="utb-showcase reverse">
+      <div class="utb-shot"><img src="assets/utb/panel-settings.png" alt="UTB 设置页"></div>
+      <div class="utb-copy">
+        <span class="utb-kicker">MAKE IT YOURS</span>
+        <h3>外观、位置、快捷键，按你的习惯来</h3>
+        <p>贴左边还是右边、把手多高、面板多宽、背景多透，都可以在设置里拖着调，改完马上看到效果。</p>
+        <ul class="utb-list">
+          <li>浅色 / 深色主题，切到深色不用重启</li>
+          <li>数据目录可迁移，旧目录会自动清理</li>
+          <li>开机自启、托盘图标、全局快捷键</li>
+          <li>可选 Gitee 同步，换电脑也能带走数据</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="utb-video-section">
+      <div class="utb-copy">
+        <span class="utb-kicker">11 SECONDS</span>
+        <h3>转一圈看看</h3>
+        <p>从待办切到剪贴板，再进截图页和设置页，就是日常使用的样子。视频是 UTB 自己录的，只截了面板区域。</p>
+        <ul class="utb-list">
+          <li>没有桌面杂物，没有额外剪辑</li>
+          <li>录制控制条不会出现在画面里</li>
+          <li>文件约 540KB，加载很快</li>
+        </ul>
+      </div>
+      <div class="utb-video-frame">
+        <video src="assets/utb/utb-demo.mp4" poster="assets/utb/utb-demo-poster.jpg" controls muted loop playsinline autoplay></video>
+      </div>
+    </section>
+
+    <section class="utb-sec">
+      <div class="sec-head"><h2 class="sec-title">记住这几个键就够了</h2></div>
+      <div class="utb-keys">
+        <div class="utb-key"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>B</kbd><span>呼出 / 收起面板</span></div>
+        <div class="utb-key"><kbd>Alt</kbd><kbd>N</kbd><span>新建便签</span></div>
+        <div class="utb-key"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>A</kbd><span>区域截图</span></div>
+        <div class="utb-key"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>V</kbd><span>剪贴板浮窗</span></div>
+        <div class="utb-key"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>S</kbd><span>屏幕录制</span></div>
+        <div class="utb-key"><kbd>Esc</kbd><span>取消 / 关闭浮层</span></div>
+      </div>
+    </section>
+
+    <section class="utb-sec">
+      <div class="utb-download">
+        <div>
+          <span class="utb-kicker">DOWNLOAD</span>
+          <h2>下载 UToolBar</h2>
+          <p>Windows 10 2004 及以上 / Windows 11，64 位。安装包自带 .NET 8 运行时，双击安装，默认装到 D:\Programs\UToolBar。</p>
+        </div>
+        <div class="utb-actions">
+          <a class="btn btn-primary" href="https://github.com/CodeCatIO/UToolBar/releases/latest" target="_blank" rel="noopener">下载 v2.3.1</a>
+          <a class="btn btn-ghost" href="https://github.com/CodeCatIO/UToolBar/releases" target="_blank" rel="noopener">全部版本</a>
+        </div>
+      </div>
+
+      <div style="margin-top:26px">
+        <details class="utb-faq"><summary>需要先装 .NET 吗？</summary><p>不需要。安装包是自包含的单文件发布，已经带上了 .NET 8 运行时。</p></details>
+        <details class="utb-faq"><summary>录屏为什么没有用显卡硬件编码？</summary><p>部分 Intel 显卡驱动在非 16 对齐的选区宽度下会崩溃，为了任意选区都能稳定录制，这里用了系统软件编码。1080p 录制大约占用 0.4 个 CPU 核心。</p></details>
+        <details class="utb-faq"><summary>数据存在哪里？会被上传吗？</summary><p>默认在 %APPDATA%\UToolBar，截图和录屏分别在图片、视频目录下。所有内容都只留在本机，不会上传；只有你主动配置 Gitee 仓库时才会同步 data.json。</p></details>
+        <details class="utb-faq"><summary>以前装过 EdgeBar，数据会丢吗？</summary><p>不会。2.3 起首次启动会自动把 %APPDATA%\EdgeBar 的数据复制到 %APPDATA%\UToolBar，并迁移开机自启，旧目录保留作备份。</p></details>
+      </div>
+    </section>
   </section>
 
   <!-- ==================== 笔记 ==================== -->
@@ -1127,7 +1326,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'p4.result': '稳定跑在现场，告警从「事后知道」变成「当场知道」。',
       'p4.state': '已完成',
       'tools.title': '工具',
-      'tools.note': '自己写的小东西，做好一个放一个。点开直接能用，不用装。',
+      'tools.note': '自己写的小东西，做好一个放一个。点开看详情，能下载的直接下。',
       'tool1.name': 'UToolBar 统一工具栏', 'tool1.desc': '一个窗口装下 todo、纪念日、工资条、便签、计算器，还有截图录屏。懒得开一堆软件。',
       'tool2.name': '极简 TODO', 'tool2.desc': '手机平板数据互通。全年热力图，每天每周每年的打卡，随笔能录音、拍照、写两行。就这些。',
       'tool.state.wip': '开发中',
@@ -1211,7 +1410,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'p4.result': 'Runs stably on site. Alerts moved from after-the-fact to on-the-spot.',
       'p4.state': 'Done',
       'tools.title': 'Tools',
-      'tools.note': 'Small things I built. One goes up when it is done — open and use it, nothing to install.',
+      'tools.note': 'Small things I built. Open a card for details; download what is ready.',
       'tool1.name': 'UToolBar', 'tool1.desc': 'Todo, anniversaries, salary charts, sticky notes, a calculator, screenshots and screen recording — all in one window. I got tired of opening six apps.',
       'tool2.name': 'Minimal TODO', 'tool2.desc': 'Phone and tablet share one dataset. A year-long heatmap, daily and weekly and yearly check-ins, and notes you can record, photograph, or type in two lines. That is all.',
       'tool.state.wip': 'Building',
@@ -1409,10 +1608,10 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   };
 
   const TITLES = {
-    zh: { home: 'CodeCat', about: '关于 — CodeCat', work: '作品集 — CodeCat', tools: '工具 — CodeCat', notes: '笔记 — CodeCat', contact: '联系 — CodeCat' },
-    en: { home: 'CodeCat', about: 'About — CodeCat', work: 'Portfolio — CodeCat', tools: 'Tools — CodeCat', notes: 'Notes — CodeCat', contact: 'Contact — CodeCat' },
-    ja: { home: 'CodeCat', about: 'について — CodeCat', work: '作品集 — CodeCat', tools: 'ツール — CodeCat', notes: 'ノート — CodeCat', contact: '連絡 — CodeCat' },
-    ko: { home: 'CodeCat', about: '소개 — CodeCat', work: '포트폴리오 — CodeCat', tools: '도구 — CodeCat', notes: '노트 — CodeCat', contact: '연락 — CodeCat' }
+    zh: { home: 'CodeCat', about: '关于 — CodeCat', work: '作品集 — CodeCat', tools: '工具 — CodeCat', utoolbar: 'UToolBar — CodeCat', notes: '笔记 — CodeCat', contact: '联系 — CodeCat' },
+    en: { home: 'CodeCat', about: 'About — CodeCat', work: 'Portfolio — CodeCat', tools: 'Tools — CodeCat', utoolbar: 'UToolBar — CodeCat', notes: 'Notes — CodeCat', contact: 'Contact — CodeCat' },
+    ja: { home: 'CodeCat', about: 'について — CodeCat', work: '作品集 — CodeCat', tools: 'ツール — CodeCat', utoolbar: 'UToolBar — CodeCat', notes: 'ノート — CodeCat', contact: '連絡 — CodeCat' },
+    ko: { home: 'CodeCat', about: '소개 — CodeCat', work: '포트폴리오 — CodeCat', tools: '도구 — CodeCat', utoolbar: 'UToolBar — CodeCat', notes: '노트 — CodeCat', contact: '연락 — CodeCat' }
   };
 
   let lang = localStorage.getItem('cc-lang') || 'zh';
@@ -1480,6 +1679,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
 
   function parseRoute() {
     const raw = location.hash.replace(/^#\/?/, '');
+    if (raw === 'tools/utoolbar') return 'utoolbar';
     return ROUTES.includes(raw) ? raw : 'home';
   }
 
@@ -1501,7 +1701,8 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       }
     });
 
-    navLinks.forEach(a => a.classList.toggle('active', a.dataset.route === key));
+    const navKey = key === 'utoolbar' ? 'tools' : key;
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.route === navKey));
     document.title = TITLES[lang][key] || 'CodeCat';
     scrollTo({ top: 0, behavior: 'auto' });
 
