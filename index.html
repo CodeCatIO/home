@@ -10,6 +10,7 @@
 <meta name="google-site-verification" content="NJmg1XAkrI67QtGC71FaWdbGW5IFiyET_-SVd009SKw" />
 <link rel="canonical" href="https://codecatio.github.io/home/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%238f7bc4'/><text x='16' y='22' font-size='13' font-family='sans-serif' font-weight='700' fill='%23ffffff' text-anchor='middle'>CC</text></svg>">
+<link rel="preload" as="image" href="assets/hero-girl.webp" fetchpriority="high">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CodeCat">
 <meta property="og:title" content="CodeCat — 一只大四喵的个人主页">
@@ -893,7 +894,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       <div class="hero-art" id="heroArt">
         <div class="halo"></div>
         <div class="frame">
-          <img src="assets/hero-girl.jpg" alt="CodeCat character illustration" id="artImg" width="1680" height="2240">
+          <img src="assets/hero-girl.webp" alt="CodeCat character illustration" id="artImg" width="900" height="1200" fetchpriority="high" decoding="async">
         </div>
         <button class="role-chip" id="roleChip" aria-label="Say hi">
           <span class="avatar">CC</span>
@@ -1087,14 +1088,14 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
 
     <div class="tools-grid">
       <a class="tool card-3d" href="#/tools/utoolbar">
-        <span class="tool-icon"><img src="assets/utb/icon.png" alt="UToolBar"></span>
+        <span class="tool-icon"><img src="assets/utb/icon.png" alt="UToolBar" loading="lazy" decoding="async"></span>
         <h3 data-t="tool1.name">UToolBar 统一工具栏</h3>
         <p data-t="tool1.desc">一个窗口装下 todo、纪念日、工资条、便签、计算器，还有截图录屏。懒得开一堆软件。</p>
         <div class="tool-foot"><span class="tag">Windows</span><span class="card-state done"><span class="sq"></span><span data-t="tool.state.done">已发布</span></span></div>
       </a>
 
       <a class="tool card-3d" href="#/tools/minitodo">
-        <span class="tool-icon"><img src="assets/minitodo/icon.png" alt="极简 TODO"></span>
+        <span class="tool-icon"><img src="assets/minitodo/icon.png" alt="极简 TODO" loading="lazy" decoding="async"></span>
         <h3 data-t="tool2.name">极简 TODO</h3>
         <p data-t="tool2.desc">手机平板数据互通。全年热力图，每天每周每年的打卡，随笔能录音、拍照、写两行。就这些。</p>
         <div class="tool-foot"><span class="tag">App</span><span class="card-state done"><span class="sq"></span><span data-t="tool.state.done">已发布</span></span></div>
@@ -1121,8 +1122,8 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
         <div class="utb-meta mono">国内镜像 · v2.3.1 · 46MB · Windows 10 2004+ · 自包含 .NET 8</div>
       </div>
       <div class="utb-hero-visual" aria-hidden="true">
-        <div class="utb-device utb-device-back"><img src="assets/utb/panel-clipboard.png" alt=""></div>
-        <div class="utb-device"><img src="assets/utb/panel-todo.png" alt="UTB 待办面板"></div>
+        <div class="utb-device utb-device-back"><img src="assets/utb/panel-clipboard.webp" alt="" loading="lazy" decoding="async"></div>
+        <div class="utb-device"><img src="assets/utb/panel-todo.webp" alt="UTB 待办面板" loading="lazy" decoding="async"></div>
       </div>
     </section>
 
@@ -1164,7 +1165,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     </section>
 
     <section class="utb-showcase">
-      <div class="utb-shot"><img src="assets/utb/panel-shot.png" alt="UTB 截图与录屏页"></div>
+      <div class="utb-shot"><img src="assets/utb/panel-shot.webp" alt="UTB 截图与录屏页" loading="lazy" decoding="async"></div>
       <div class="utb-copy">
         <span class="utb-kicker">SCREENSHOT</span>
         <h3>截完就能标，标完直接贴</h3>
@@ -1179,7 +1180,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     </section>
 
     <section class="utb-showcase reverse">
-      <div class="utb-shot"><img src="assets/utb/panel-settings.png" alt="UTB 设置页"></div>
+      <div class="utb-shot"><img src="assets/utb/panel-settings.webp" alt="UTB 设置页" loading="lazy" decoding="async"></div>
       <div class="utb-copy">
         <span class="utb-kicker">MAKE IT YOURS</span>
         <h3>外观、位置、快捷键，按你的习惯来</h3>
@@ -1205,7 +1206,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
         </ul>
       </div>
       <div class="utb-video-frame">
-        <video src="assets/utb/utb-demo.mp4" poster="assets/utb/utb-demo-poster.jpg" controls muted loop playsinline autoplay></video>
+        <video id="utbDemo" data-src="assets/utb/utb-demo.mp4" poster="assets/utb/utb-demo-poster.jpg" controls muted loop playsinline preload="none"></video>
       </div>
     </section>
 
@@ -1264,8 +1265,8 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       </div>
       <div class="utb-hero-visual" aria-hidden="true">
         <span class="mt-ring"></span>
-        <div class="mt-phone mt-phone-back"><img src="assets/minitodo/today.png" alt=""></div>
-        <div class="mt-phone mt-phone-front"><img src="assets/minitodo/home.png" alt="极简 TODO 首页"></div>
+        <div class="mt-phone mt-phone-back"><img src="assets/minitodo/today.webp" alt="" loading="lazy" decoding="async"></div>
+        <div class="mt-phone mt-phone-front"><img src="assets/minitodo/home.webp" alt="极简 TODO 首页" loading="lazy" decoding="async"></div>
         <div class="mt-sticker">
           <span class="mt-swatch"></span>
           <span><b>奶油蓝气泡</b>#7BA3C4 · 默认配色</span>
@@ -1311,7 +1312,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     </section>
 
     <section class="utb-showcase">
-      <div class="utb-shot"><img src="assets/minitodo/calendar.png" alt="日历页：月历与当天清单"></div>
+      <div class="utb-shot"><img src="assets/minitodo/calendar.webp" alt="日历页：月历与当天清单" loading="lazy" decoding="async"></div>
       <div class="utb-copy">
         <span class="utb-kicker">CALENDAR</span>
         <h3>勾过的那天，<br>会留一个小圆点</h3>
@@ -1326,7 +1327,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     </section>
 
     <section class="utb-showcase reverse">
-      <div class="utb-shot"><img src="assets/minitodo/style.png" alt="今日计划个性化设置页"></div>
+      <div class="utb-shot"><img src="assets/minitodo/style.webp" alt="今日计划个性化设置页" loading="lazy" decoding="async"></div>
       <div class="utb-copy">
         <span class="utb-kicker">MAKE IT YOURS</span>
         <h3>今天这一页，<br>按你的样子来</h3>
@@ -1341,7 +1342,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     </section>
 
     <section class="utb-showcase">
-      <div class="utb-shot"><img src="assets/minitodo/settings.png" alt="设置页：语言、外观、数据与云同步"></div>
+      <div class="utb-shot"><img src="assets/minitodo/settings.webp" alt="设置页：语言、外观、数据与云同步" loading="lazy" decoding="async"></div>
       <div class="utb-copy">
         <span class="utb-kicker">YOUR DATA</span>
         <h3>数据是你的，<br>不用交给谁</h3>
@@ -1358,7 +1359,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     <section class="utb-sec">
       <div class="utb-download">
         <div class="mt-dl-title">
-          <img src="assets/minitodo/icon.png" alt="MINITODO">
+          <img src="assets/minitodo/icon.png" alt="MINITODO" loading="lazy" decoding="async">
           <div>
             <span class="utb-kicker">DOWNLOAD</span>
             <h2>下载 MINITODO</h2>
@@ -1456,7 +1457,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
 <div class="cursor" id="cursor" aria-hidden="true"></div>
 <div class="mascot" id="mascot" data-state="idle">
   <div class="mascot-bubble" id="mascotBubble"></div>
-  <img class="mascot-img" id="mascotImg" src="assets/mascot-stand.png" alt="CodeCat" draggable="false">
+  <img class="mascot-img" id="mascotImg" src="assets/mascot-stand.webp" alt="CodeCat" draggable="false" decoding="async">
 </div>
 
 <div class="help" id="help">
@@ -1473,7 +1474,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
 <div class="help" id="apkDlg">
   <div class="help-card apk-card">
     <div class="apk-head">
-      <img src="assets/minitodo/icon.png" alt="">
+      <img src="assets/minitodo/icon.png" alt="" loading="lazy" decoding="async">
       <div>
         <h3>本应用为手机APK，是否下载？</h3>
         <p class="sub mono">MINITODO v1.0 · 55.5 MB · ANDROID 7.0+</p>
@@ -1943,6 +1944,14 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     const page = pages.find(p => p.dataset.page === key);
     if (!page) return;
 
+    if (key === 'utoolbar') {
+      const v = $('#utbDemo');
+      if (v && !v.src) {
+        v.src = v.dataset.src;
+        v.play().catch(() => {});
+      }
+    }
+
     page.querySelectorAll('[data-count]').forEach(el => {
       el.textContent = '0';
       numIO.observe(el);
@@ -2282,7 +2291,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     const M = 6;
     let bubbleTimer = null, faceTimer = null;
 
-    new Image().src = 'assets/mascot-dust.png';
+    new Image().src = 'assets/mascot-dust.webp';
 
     function place() {
       const w = mascotEl.offsetWidth || 160;
@@ -2296,7 +2305,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     mascotEl.addEventListener('click', () => {
       clearTimeout(faceTimer);
       mascotEl.dataset.state = 'shy';
-      mImg.src = 'assets/mascot-dust.png';
+      mImg.src = 'assets/mascot-dust.webp';
       mascotEl.classList.remove('pop');
       void mascotEl.offsetWidth;
       mascotEl.classList.add('pop');
@@ -2306,7 +2315,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       bubbleTimer = setTimeout(() => mBubble.classList.remove('on'), 1500);
       faceTimer = setTimeout(() => {
         mascotEl.dataset.state = 'idle';
-        mImg.src = 'assets/mascot-stand.png';
+        mImg.src = 'assets/mascot-stand.webp';
         mascotEl.classList.remove('pop');
       }, 1500);
     });
