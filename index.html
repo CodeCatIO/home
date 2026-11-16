@@ -10,7 +10,7 @@
 <meta name="google-site-verification" content="NJmg1XAkrI67QtGC71FaWdbGW5IFiyET_-SVd009SKw" />
 <link rel="canonical" href="https://codecatio.github.io/home/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%238f7bc4'/><text x='16' y='22' font-size='13' font-family='sans-serif' font-weight='700' fill='%23ffffff' text-anchor='middle'>CC</text></svg>">
-<link rel="preload" as="image" href="assets/hero-girl.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-girl.webp" imagesrcset="assets/hero-girl-640.webp 640w, assets/hero-girl.webp 900w" imagesizes="(max-width: 820px) 62vw, 420px" fetchpriority="high">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CodeCat">
 <meta property="og:title" content="CodeCat — 一只大四喵的个人主页">
@@ -894,7 +894,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       <div class="hero-art" id="heroArt">
         <div class="halo"></div>
         <div class="frame">
-          <img src="assets/hero-girl.webp" alt="CodeCat character illustration" id="artImg" width="900" height="1200" fetchpriority="high" decoding="async">
+          <img src="assets/hero-girl.webp" srcset="assets/hero-girl-640.webp 640w, assets/hero-girl.webp 900w" sizes="(max-width: 820px) 62vw, 420px" alt="CodeCat character illustration" id="artImg" width="900" height="1200" fetchpriority="high" decoding="async">
         </div>
         <button class="role-chip" id="roleChip" aria-label="Say hi">
           <span class="avatar">CC</span>
@@ -1206,7 +1206,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
         </ul>
       </div>
       <div class="utb-video-frame">
-        <video id="utbDemo" data-src="assets/utb/utb-demo.mp4" poster="assets/utb/utb-demo-poster.jpg" controls muted loop playsinline preload="none"></video>
+        <video id="utbDemo" data-src="assets/utb/utb-demo.mp4" poster="assets/utb/utb-demo-poster.webp" controls muted loop playsinline preload="none"></video>
       </div>
     </section>
 
@@ -2291,7 +2291,14 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     const M = 6;
     let bubbleTimer = null, faceTimer = null;
 
-    new Image().src = 'assets/mascot-dust.webp';
+    let dustReady = false;
+    function preloadDust() {
+      if (dustReady) return;
+      dustReady = true;
+      new Image().src = 'assets/mascot-dust.webp';
+    }
+    mascotEl.addEventListener('pointerenter', preloadDust, { passive: true });
+    mascotEl.addEventListener('pointerdown', preloadDust, { passive: true });
 
     function place() {
       const w = mascotEl.offsetWidth || 160;
