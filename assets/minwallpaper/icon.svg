@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="15" fill="#12141a"/>
+  <rect x="13" y="17" width="4" height="30" rx="2" fill="#46e2a8"/>
+  <text x="23" y="41" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="19" font-weight="700" fill="#f5f7f8">MW</text>
+  <circle cx="48" cy="19" r="3" fill="#46e2a8"/>
+</svg>

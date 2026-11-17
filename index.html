@@ -730,6 +730,21 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   .utb-faq summary::marker{color:var(--accent)}
   .utb-faq p{margin:10px 0 0;color:var(--ink-dim);font-size:13px;line-height:1.9;max-width:62ch}
 
+  /* ================= MINWallPaper ================= */
+  .mw-hero-visual{position:relative;min-height:420px;display:flex;align-items:center;justify-content:center;isolation:isolate}
+  .mw-hero-visual::before{content:'';position:absolute;width:76%;height:76%;border-radius:50%;background:radial-gradient(circle,var(--accent-soft),transparent 68%);filter:blur(10px);z-index:-1}
+  .mw-window{width:100%;max-width:620px;border-radius:16px;overflow:hidden;border:1px solid var(--line-strong);background:#0d0e12;box-shadow:0 40px 90px -40px rgba(24,18,50,.55);transform:rotate(-1.2deg)}
+  .mw-window img{width:100%;display:block}
+  .mw-shot{display:flex;justify-content:center}
+  .mw-shot img{width:100%;max-width:560px;border-radius:14px;border:1px solid var(--line);box-shadow:0 26px 60px -34px rgba(24,18,50,.5)}
+  .mw-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .mw-tags span{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10px;letter-spacing:.08em;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--ink-faint)}
+  @media (max-width:820px){
+    .mw-hero-visual{min-height:auto;margin-top:18px}
+    .mw-window{max-width:100%;transform:none}
+    .mw-shot img{max-width:100%}
+  }
+
   /* ========== 极简 TODO 详情 ========== */
   .mt-ring{
     position:absolute;width:min(460px,92%);aspect-ratio:1;border-radius:50%;z-index:0;
@@ -1100,6 +1115,13 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
         <p data-t="tool2.desc">手机平板数据互通。全年热力图，每天每周每年的打卡，随笔能录音、拍照、写两行。就这些。</p>
         <div class="tool-foot"><span class="tag">App</span><span class="card-state done"><span class="sq"></span><span data-t="tool.state.done">已发布</span></span></div>
       </a>
+
+      <a class="tool card-3d" href="#/tools/minwallpaper">
+        <span class="tool-icon"><img src="assets/minwallpaper/icon.svg" alt="MINWallPaper" loading="lazy" decoding="async"></span>
+        <h3 data-t="tool3.name">MINWallPaper 动态壁纸</h3>
+        <p data-t="tool3.desc">本地视频壁纸、唱片机音乐库和桌面小工具。给每张壁纸配一首歌，全部离线运行。</p>
+        <div class="tool-foot"><span class="tag">Windows</span><span class="card-state done"><span class="sq"></span><span data-t="tool.state.done">已发布</span></span></div>
+      </a>
     </div>
   </section>
 
@@ -1241,6 +1263,138 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
         <details class="utb-faq"><summary>录屏为什么没有用显卡硬件编码？</summary><p>部分 Intel 显卡驱动在非 16 对齐的选区宽度下会崩溃，为了任意选区都能稳定录制，这里用了系统软件编码。1080p 录制大约占用 0.4 个 CPU 核心。</p></details>
         <details class="utb-faq"><summary>数据存在哪里？会被上传吗？</summary><p>默认在 %APPDATA%\UToolBar，截图和录屏分别在图片、视频目录下。所有内容都只留在本机，不会上传；只有你主动配置 Gitee 仓库时才会同步 data.json。</p></details>
         <details class="utb-faq"><summary>以前装过 EdgeBar，数据会丢吗？</summary><p>不会。2.3 起首次启动会自动把 %APPDATA%\EdgeBar 的数据复制到 %APPDATA%\UToolBar，并迁移开机自启，旧目录保留作备份。</p></details>
+      </div>
+    </section>
+  </section>
+
+  <!-- ==================== MINWallPaper 详情 ==================== -->
+  <section class="page" data-page="minwallpaper" hidden>
+    <a class="utb-back" href="#/tools">← 返回工具</a>
+
+    <section class="utb-hero">
+      <div class="utb-hero-copy">
+        <span class="utb-eyebrow">MINWALLPAPER · WINDOWS DESKTOP</span>
+        <h1 class="utb-title">桌面，也可以<br>有声音和雨</h1>
+        <p class="utb-lede">把动态壁纸、唱片机音乐库和桌面小工具收进一个轻量面板。视频硬解铺满桌面，每张壁纸可以配一首歌；壁纸、音乐、播放列表都留在本机。</p>
+        <div class="utb-actions">
+          <a class="btn btn-primary" href="https://gitee.com/codecatio/minwallpaper/releases" target="_blank" rel="noopener">
+            直接下载 Windows 版
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 11l6 6 6-6M5 21h14"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/CodeCatIO/MINWallPaper" target="_blank" rel="noopener">GitHub 源码</a>
+          <a class="btn btn-ghost" href="assets/minwallpaper/MINWallPaper.zip" download>站内下载</a>
+        </div>
+        <div class="utb-meta mono">v1.0 · 1.3 MB · Windows 10/11 64 位 · .NET 8 + WebView2</div>
+        <div class="mw-tags"><span>WINFORMS + WEBVIEW2</span><span>MEDIA FOUNDATION</span><span>NAUDIO</span><span>OFFLINE</span></div>
+      </div>
+      <div class="mw-hero-visual" aria-hidden="true">
+        <div class="mw-window"><img src="assets/minwallpaper/hero-library.png" alt="MINWallPaper 壁纸库" fetchpriority="high" decoding="async"></div>
+      </div>
+    </section>
+
+    <section class="utb-sec">
+      <div class="sec-head"><h2 class="sec-title">桌面不只是背景</h2></div>
+      <p class="sec-note">壁纸、音乐、工具都在同一个面板里。不联网，不登录，打开就能用。</p>
+      <div class="utb-features">
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></span>
+          <h3>视频壁纸</h3>
+          <p>Media Foundation 硬解铺满桌面，支持 mp4 / mkv / mov / avi / wmv。播放卡住会自动重启，视频本身强制静音。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="2.4"/><path d="M12 3.8v5.8M12 14.4v5.8M3.8 12h5.8M14.4 12h5.8"/></svg></span>
+          <h3>给壁纸配一首歌</h3>
+          <p>每张壁纸可以绑定一个播放列表或单曲；切到这张壁纸，音乐自动切过去，列表循环或单曲循环都行。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6"/><path d="M7 18h10M12 6v9"/><circle cx="12" cy="16" r="2"/></svg></span>
+          <h3>沉浸音乐库</h3>
+          <p>黑胶唱片、专辑封面、同名 .lrc 歌词、单曲 / 列表 / 随机三种循环。一键切到浅色沉浸页，唱片会转。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.4" height="6.4" rx="1.6"/><rect x="13.6" y="4" width="6.4" height="6.4" rx="1.6"/><rect x="4" y="13.6" width="6.4" height="6.4" rx="1.6"/><rect x="13.6" y="13.6" width="6.4" height="6.4" rx="1.6"/></svg></span>
+          <h3>三种桌面小工具</h3>
+          <p>时钟、跟随系统声音跳动的音浪，还有刚加的落雨。全屏雨丝鼠标可以穿透，不挡桌面图标，也不抢焦点。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.4"/><path d="M3 9h18M8 4v5"/><path d="M9 14h6"/></svg></span>
+          <h3>玻璃感的界面</h3>
+          <p>WinForms 只负责系统能力，界面交给 WebView2 渲染。胶囊导航、白色玻璃播放器、唱片封面，窗口缩放不会塌。</p>
+        </article>
+        <article class="utb-feature">
+          <span class="utb-ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.2-2.8 7.6-7 9-4.2-1.4-7-4.8-7-9V6z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span>
+          <h3>本地优先</h3>
+          <p>壁纸、音乐、播放列表、封面缓存都在程序目录的 data 文件夹。不上传，不联网，换电脑拷贝 data 就能带走。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="utb-showcase">
+      <div class="utb-shot mw-shot"><img src="assets/minwallpaper/music.png" alt="MINWallPaper 音乐库" loading="lazy" decoding="async"></div>
+      <div class="utb-copy">
+        <span class="utb-kicker">MUSIC</span>
+        <h3>给每张壁纸，<br>配一首歌</h3>
+        <p>壁纸详情里多了一栏「音乐」：可以选一个播放列表，也可以搜一首单曲。选中播放列表就列表循环，选中单曲就单曲循环。</p>
+        <ul class="utb-list">
+          <li>切壁纸时自动切到这张壁纸绑定的音乐</li>
+          <li>曲目搜索只露出三行，滚轮往下看更多</li>
+          <li>音量条和壁纸库的音量是同一个</li>
+          <li>视频壁纸本身静音，声音只来自音乐库</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="utb-showcase reverse">
+      <div class="utb-shot mw-shot"><img src="assets/minwallpaper/immersive.png" alt="MINWallPaper 沉浸模式" loading="lazy" decoding="async"></div>
+      <div class="utb-copy">
+        <span class="utb-kicker">IMMERSIVE</span>
+        <h3>一键切到<br>沉浸模式</h3>
+        <p>点「音乐库」旁边的开关，一道斜线把当前页面切开，两片页面向左右推开，露出浅蓝和芥末黄的沉浸页。</p>
+        <ul class="utb-list">
+          <li>左侧「全部音乐 / 播放列表」，中间是大唱片</li>
+          <li>右侧歌词，同名 .lrc 会逐行高亮滚动</li>
+          <li>底部白蓝黄斜切播放条，白色玻璃按钮</li>
+          <li>找不到封面的唱片就是白芯黑胶</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="utb-showcase">
+      <div class="utb-shot mw-shot"><img src="assets/minwallpaper/tools.png" alt="MINWallPaper 工具库" loading="lazy" decoding="async"></div>
+      <div class="utb-copy">
+        <span class="utb-kicker">WIDGETS</span>
+        <h3>桌面上<br>再放点小东西</h3>
+        <p>工具库里的开关即开即用：时钟显示时间和日期，音浪跟着系统声音跳，落雨是整屏细雨。</p>
+        <ul class="utb-list">
+          <li>全部是透明分层窗口，鼠标可以穿透</li>
+          <li>沉在普通窗口下面，不挡 Alt+Tab</li>
+          <li>落雨分远近三层，雨丝带一点风</li>
+          <li>不需要时可以单独关掉，互不影响</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="utb-sec">
+      <div class="utb-download">
+        <div>
+          <span class="utb-kicker">DOWNLOAD</span>
+          <h2>下载 MINWallPaper</h2>
+          <p>Windows 10/11 64 位。压缩包 1.3MB，解压即用；需要 .NET 8 Desktop Runtime，视频壁纸需要 WebView2（Win11 自带）。包内不含任何个人壁纸、音乐或播放列表数据。GitHub / Gitee 仓库整理中，当前可以直接站内下载。</p>
+        </div>
+        <div class="utb-actions">
+          <a class="btn btn-primary" href="https://gitee.com/codecatio/minwallpaper/releases" target="_blank" rel="noopener">Gitee 下载</a>
+          <a class="btn btn-ghost" href="https://github.com/CodeCatIO/MINWallPaper/releases" target="_blank" rel="noopener">GitHub Releases</a>
+          <a class="btn btn-ghost" href="assets/minwallpaper/MINWallPaper.zip" download>站内下载</a>
+        </div>
+      </div>
+
+      <div style="margin-top:26px">
+        <details class="utb-faq"><summary>需要安装 .NET 吗？</summary><p>需要 .NET 8 Desktop Runtime；压缩包没有自带运行时，所以只有 1.3MB。Win11 一般已有 WebView2，Win10 如果没有，第一次打开面板时按提示安装即可。</p></details>
+        <details class="utb-faq"><summary>视频壁纸为什么没有声音？</summary><p>视频壁纸默认强制静音，声音交给音乐库。每张壁纸可以绑定一个播放列表或单曲，切换壁纸时自动切歌。</p></details>
+        <details class="utb-faq"><summary>支持哪些视频格式？</summary><p>mp4、mkv、mov、avi、wmv 等 Media Foundation 能解码的格式；HEVC 需要系统安装 HEVC 视频扩展。壁纸卡片预览由后端抽帧生成，不依赖浏览器解码。</p></details>
+        <details class="utb-faq"><summary>壁纸和音乐放在哪里？</summary><p>都在程序目录的 data 文件夹：data/wallpapers、data/music/files，播放列表和壁纸绑定也在 data 下。不上传、不联网，换电脑直接拷贝整个 data 文件夹。</p></details>
+        <details class="utb-faq"><summary>落雨、时钟、音浪怎么开？</summary><p>打开工具库，点对应卡片的开关即可。落雨是全屏透明雨丝，鼠标可以穿透，不挡桌面图标。</p></details>
+        <details class="utb-faq"><summary>为什么压缩包这么小？</summary><p>程序本身是框架依赖发布，没有把 .NET 运行时打进去。壁纸、音乐、封面和播放列表都由你本地的 data 文件夹提供，安装包里不包含这些内容。</p></details>
       </div>
     </section>
   </section>
@@ -1559,6 +1713,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'tools.note': '自己写的小东西，做好一个放一个。点开看详情，能下载的直接下。',
       'tool1.name': 'UToolBar 统一工具栏', 'tool1.desc': '一个窗口装下 todo、纪念日、工资条、便签、计算器，还有截图录屏。懒得开一堆软件。',
       'tool2.name': '极简 TODO', 'tool2.desc': '手机平板数据互通。全年热力图，每天每周每年的打卡，随笔能录音、拍照、写两行。就这些。',
+      'tool3.name': 'MINWallPaper 动态壁纸', 'tool3.desc': '本地视频壁纸、唱片机音乐库和桌面小工具。给每张壁纸配一首歌，全部离线运行。',
       'tool.state.wip': '开发中',
       'tool.state.done': '已发布',
       'notes.title': '笔记',
@@ -1644,6 +1799,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'tools.note': 'Small things I built. Open a card for details; download what is ready.',
       'tool1.name': 'UToolBar', 'tool1.desc': 'Todo, anniversaries, salary charts, sticky notes, a calculator, screenshots and screen recording — all in one window. I got tired of opening six apps.',
       'tool2.name': 'Minimal TODO', 'tool2.desc': 'Phone and tablet share one dataset. A year-long heatmap, daily and weekly and yearly check-ins, and notes you can record, photograph, or type in two lines. That is all.',
+      'tool3.name': 'MINWallPaper', 'tool3.desc': 'Local video wallpapers, a vinyl music library, and desktop widgets. Give each wallpaper its own soundtrack; everything runs offline.',
       'tool.state.wip': 'Building',
       'tool.state.done': 'Released',
       'notes.title': 'Notes',
@@ -1729,6 +1885,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'tools.note': '自分で作った小さな道具。できたものから並べています。開けばそのまま使えて、インストールは不要。',
       'tool1.name': 'UToolBar', 'tool1.desc': 'ToDo、記念日、給与グラフ、付箋、電卓、スクショと録画を 1 つのウィンドウに。アプリを何個も開くのが面倒だったので。',
       'tool2.name': 'ミニマル TODO', 'tool2.desc': 'スマホとタブレットでデータ同期。年間ヒートマップ、日・週・年の記録、メモは音声・写真・2 行の文字で。それだけ。',
+      'tool3.name': 'MINWallPaper', 'tool3.desc': 'ローカル動画壁紙、レコード風ミュージックライブラリ、デスクトップ小物。壁紙ごとに曲を割り当て、すべてオフラインで動きます。',
       'tool.state.wip': '開発中',
       'tool.state.done': '公開中',
       'notes.title': 'ノート',
@@ -1814,6 +1971,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       'tools.note': '직접 만든 작은 도구들. 완성되는 대로 하나씩 올립니다. 열면 바로 쓸 수 있고 설치할 필요 없습니다.',
       'tool1.name': 'UToolBar', 'tool1.desc': '할 일, 기념일, 급여 그래프, 메모, 계산기, 스크린샷과 녹화를 한 창에. 앱 여러 개 여는 게 귀찮아서.',
       'tool2.name': '미니멀 TODO', 'tool2.desc': '휴대폰과 태블릿이 같은 데이터를 씁니다. 연간 히트맵, 일·주·년 기록, 메모는 음성·사진·두 줄 텍스트로. 그게 전부.',
+      'tool3.name': 'MINWallPaper', 'tool3.desc': '로컬 동영상 배경화면, 바이닐 음악 라이브러리, 데스크톱 위젯. 배경화면마다 음악을 지정하고 모두 오프라인으로 실행됩니다.',
       'tool.state.wip': '개발 중',
       'tool.state.done': '출시됨',
       'notes.title': '노트',
@@ -1842,10 +2000,10 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
   };
 
   const TITLES = {
-    zh: { home: 'CodeCat', about: '关于 — CodeCat', work: '作品集 — CodeCat', tools: '工具 — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', notes: '笔记 — CodeCat', contact: '联系 — CodeCat' },
-    en: { home: 'CodeCat', about: 'About — CodeCat', work: 'Portfolio — CodeCat', tools: 'Tools — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', notes: 'Notes — CodeCat', contact: 'Contact — CodeCat' },
-    ja: { home: 'CodeCat', about: 'について — CodeCat', work: '作品集 — CodeCat', tools: 'ツール — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', notes: 'ノート — CodeCat', contact: '連絡 — CodeCat' },
-    ko: { home: 'CodeCat', about: '소개 — CodeCat', work: '포트폴리오 — CodeCat', tools: '도구 — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', notes: '노트 — CodeCat', contact: '연락 — CodeCat' }
+    zh: { home: 'CodeCat', about: '关于 — CodeCat', work: '作品集 — CodeCat', tools: '工具 — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', minwallpaper: 'MINWallPaper — CodeCat', notes: '笔记 — CodeCat', contact: '联系 — CodeCat' },
+    en: { home: 'CodeCat', about: 'About — CodeCat', work: 'Portfolio — CodeCat', tools: 'Tools — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', minwallpaper: 'MINWallPaper — CodeCat', notes: 'Notes — CodeCat', contact: 'Contact — CodeCat' },
+    ja: { home: 'CodeCat', about: 'について — CodeCat', work: '作品集 — CodeCat', tools: 'ツール — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', minwallpaper: 'MINWallPaper — CodeCat', notes: 'ノート — CodeCat', contact: '連絡 — CodeCat' },
+    ko: { home: 'CodeCat', about: '소개 — CodeCat', work: '포트폴리오 — CodeCat', tools: '도구 — CodeCat', utoolbar: 'UToolBar — CodeCat', minitodo: 'MINITODO — CodeCat', minwallpaper: 'MINWallPaper — CodeCat', notes: '노트 — CodeCat', contact: '연락 — CodeCat' }
   };
 
   let lang = localStorage.getItem('cc-lang') || 'zh';
@@ -1915,6 +2073,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
     const raw = location.hash.replace(/^#\/?/, '');
     if (raw === 'tools/utoolbar') return 'utoolbar';
     if (raw === 'tools/minitodo') return 'minitodo';
+    if (raw === 'tools/minwallpaper') return 'minwallpaper';
     return ROUTES.includes(raw) ? raw : 'home';
   }
 
@@ -1936,7 +2095,7 @@ html.cursor-custom,html.cursor-custom *{cursor:none!important}
       }
     });
 
-    const navKey = (key === 'utoolbar' || key === 'minitodo') ? 'tools' : key;
+    const navKey = (key === 'utoolbar' || key === 'minitodo' || key === 'minwallpaper') ? 'tools' : key;
     navLinks.forEach(a => a.classList.toggle('active', a.dataset.route === navKey));
     document.title = TITLES[lang][key] || 'CodeCat';
     scrollTo({ top: 0, behavior: 'auto' });
