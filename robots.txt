@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://codecatio.github.io/home/sitemap.xml
+Sitemap: https://home-cqf.pages.dev/sitemap.xml
